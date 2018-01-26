@@ -18,26 +18,9 @@ public class movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.Player)
-        {
-            if (Input.GetKey(KeyCode.A))
-            {
-                Movement(false);
-            }
+        
 
-            if (Input.GetKey(KeyCode.D))
-            {
-                Movement(true);
-            }
-
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Jump();
-            }
-        }
-
-        Debug.Log(OnFloor());
-	}
+    }
 
     internal void Movement(bool direction)
     {
@@ -49,7 +32,7 @@ public class movement : MonoBehaviour {
         {
             rb.velocity = new Vector3(speed, rb.velocity.y);
         }
-
+        
     }
 
     internal void Jump()
