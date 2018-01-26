@@ -120,6 +120,8 @@ GameObject:
   - component: {fileID: 461106906}
   - component: {fileID: 461106910}
   - component: {fileID: 461106907}
+  - component: {fileID: 461106911}
+  - component: {fileID: 461106912}
   m_Layer: 0
   m_Name: PLAYERFAKE
   m_TagString: Untagged
@@ -229,8 +231,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rb: {fileID: 0}
   jumpSpeed: 5
+--- !u!114 &461106911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461106905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9597f94953861a446a6f8131fff45874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mytype: 0
+--- !u!114 &461106912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461106905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc3c4cfe726a2147b23a84eade1e5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  soulTimer: 0
 --- !u!1001 &635062667
 Prefab:
   m_ObjectHideFlags: 0
@@ -284,6 +310,7 @@ GameObject:
   - component: {fileID: 1260064634}
   - component: {fileID: 1260064633}
   - component: {fileID: 1260064632}
+  - component: {fileID: 1260064636}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Floor
@@ -368,6 +395,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1260064636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1260064631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9597f94953861a446a6f8131fff45874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mytype: 4
 --- !u!1 &1378879676
 GameObject:
   m_ObjectHideFlags: 0
