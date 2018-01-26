@@ -18,22 +18,23 @@ public class movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-      
-        if (Input.GetKey(KeyCode.A))
+        if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.Player)
         {
-            Movement(false);
-        }
+            if (Input.GetKey(KeyCode.A))
+            {
+                Movement(false);
+            }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            Movement(true);
-        }
+            if (Input.GetKey(KeyCode.D))
+            {
+                Movement(true);
+            }
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Jump();
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Jump();
+            }
         }
- 
         
 
 	}
