@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212426095010834342}
   - component: {fileID: 50500179539356040}
   - component: {fileID: 61497093280228056}
-  - component: {fileID: 114203130622998148}
   - component: {fileID: 58518767803664710}
+  - component: {fileID: 114203130622998148}
   - component: {fileID: 114015052292465864}
   - component: {fileID: 114086947212392066}
   m_Layer: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rb: {fileID: 50500179539356040}
+  jumpSpeed: 0
 --- !u!114 &114203130622998148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89510d20e13b6241a2a23f6c939bc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMovement: 0
+  maxMovement: 25
 --- !u!212 &212426095010834342
 SpriteRenderer:
   m_ObjectHideFlags: 1

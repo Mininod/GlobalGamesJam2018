@@ -9,17 +9,14 @@ public class WarriorAI : MonoBehaviour {
     private bool canJump;
     private bool chase;
 
-    private GameObject me;
-   // private CircleCollider2D aggroRadius;
+    
+  
 	// Use this for initialization
 	void Start ()
     {
         moveRight = true;
         currentMovement = 0;
-
-        //me = GetComponent<Movement>();
-
-        //aggroRadius = gameObject.GetComponent<CircleCollider2D>();
+        
 	}
 	
 	// Update is called once per frame
@@ -46,14 +43,11 @@ public class WarriorAI : MonoBehaviour {
             if (currentMovement < maxMovement)
             {
                 ++currentMovement;
-                // Run movement script
-                // GetComponent<movement>();
-                //GetComponent<movement>();
                 gameObject.GetComponent<movement>().Movement(moveRight);
             }
             else
             {
-                currentMovement = 0;
+                currentMovement = -maxMovement;
                 moveRight = !moveRight;
             }
         }
@@ -68,7 +62,7 @@ public class WarriorAI : MonoBehaviour {
             if (other.GetComponent<MyType>().mytype ==MyType.objectTag.Player)
             {
                 chase = true;
-                print("In Chase");
+                
                 
             }
         }
@@ -85,12 +79,12 @@ public class WarriorAI : MonoBehaviour {
                 if(gameObject.transform.position.x < other.transform.position.x)
                 {
                     moveRight = true;
-                    print("In Chase right");
+                    
                 }
                 if (gameObject.transform.position.x > other.transform.position.x)
                 {
                     moveRight = false;
-                    print("In Chase right");
+                    
                 }
                 //if player is jumping jump;
             }
