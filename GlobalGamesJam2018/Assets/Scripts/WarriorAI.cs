@@ -39,6 +39,7 @@ public class WarriorAI : MonoBehaviour {
         if (chase == true)
         {
             //movementScript
+            gameObject.GetComponent<movement>().Movement(moveRight);
         }
         else
         {
@@ -84,6 +85,11 @@ public class WarriorAI : MonoBehaviour {
                 if(gameObject.transform.position.x < other.transform.position.x)
                 {
                     moveRight = true;
+                    print("In Chase right");
+                }
+                if (gameObject.transform.position.x > other.transform.position.x)
+                {
+                    moveRight = false;
                     print("In Chase right");
                 }
                 //if player is jumping jump;
