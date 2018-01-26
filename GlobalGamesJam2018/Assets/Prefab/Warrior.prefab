@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 61497093280228056}
   - component: {fileID: 114203130622998148}
   - component: {fileID: 58518767803664710}
+  - component: {fileID: 114015052292465864}
+  - component: {fileID: 114086947212392066}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -73,7 +75,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -104,6 +106,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114015052292465864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179207307362144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5482f70f601cd874e8427563f249ad6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mytype: 1
+--- !u!114 &114086947212392066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179207307362144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725177069e98d07448c03dd4f28963e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  rb: {fileID: 50500179539356040}
 --- !u!114 &114203130622998148
 MonoBehaviour:
   m_ObjectHideFlags: 1
