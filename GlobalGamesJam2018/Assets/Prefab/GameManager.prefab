@@ -51,4 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dbc002f3689a94586014308d350786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTimer: 0
+  levelTimer: 10
