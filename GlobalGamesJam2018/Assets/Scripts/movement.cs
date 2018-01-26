@@ -38,7 +38,7 @@ public class movement : MonoBehaviour {
 
 	}
 
-    void Movement(bool direction)
+    internal void Movement(bool direction)
     {
         if (direction == false)
         {
@@ -51,7 +51,7 @@ public class movement : MonoBehaviour {
 
     }
 
-    void Jump()
+    internal void Jump()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 0.5f); //Change "10" to change range;
         Debug.DrawRay(transform.position, -transform.up, Color.red);
