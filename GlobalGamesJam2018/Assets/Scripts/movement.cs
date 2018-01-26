@@ -35,8 +35,8 @@ public class movement : MonoBehaviour {
                 Jump();
             }
         }
-        
 
+        Debug.Log(OnFloor());
 	}
 
     internal void Movement(bool direction)
@@ -58,12 +58,14 @@ public class movement : MonoBehaviour {
         Debug.DrawRay(transform.position, -transform.up, Color.red);
         if (hit.collider != null)
         {
-            if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.floor)
+            Debug.Log(hit.collider);
+            if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.Floor)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             }
         }
        
+
     }
 
     internal bool OnFloor()
@@ -72,7 +74,7 @@ public class movement : MonoBehaviour {
         
         if (hit.collider != null)
         {
-            if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.floor)
+            if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.Floor)
             {
                 return true; 
             }
