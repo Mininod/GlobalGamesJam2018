@@ -11,17 +11,18 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        currentLevelTimer = 0;
+        currentLevelTimer = levelTimer;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        currentLevelTimer += Time.deltaTime;
+        currentLevelTimer -= Time.deltaTime;
         print(currentLevelTimer);
-        if(currentLevelTimer>levelTimer)
+        if(currentLevelTimer<0)
         {
             // game over? / lose a life
+            print("we timed out");
         }
 	}
 }
