@@ -90,7 +90,6 @@ public class WarriorAI : MonoBehaviour {
                 {
                     if (other.GetComponent<movement>().OnFloor() == false)
                     {
-                        print("woowo we jummpin");
                         gameObject.GetComponent<movement>().Jump();
                     }
                 }
