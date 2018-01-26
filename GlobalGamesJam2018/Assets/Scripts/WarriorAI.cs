@@ -22,9 +22,9 @@ public class WarriorAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
+        
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right,2.0f);
-
+        
         if (hit)
         {
             if(hit.collider.GetComponent<MyType>().mytype==MyType.objectTag.Player)
@@ -52,7 +52,7 @@ public class WarriorAI : MonoBehaviour {
             }
         }
 
-	}
+    }
 
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -62,8 +62,7 @@ public class WarriorAI : MonoBehaviour {
             if (other.GetComponent<MyType>().mytype ==MyType.objectTag.Player)
             {
                 chase = true;
-                
-                
+   
             }
         }
     }
@@ -87,6 +86,15 @@ public class WarriorAI : MonoBehaviour {
                     
                 }
                 //if player is jumping jump;
+                if (other.GetComponent<movement>())
+                {
+                    if (other.GetComponent<movement>().OnFloor() == false)
+                    {
+                        print("woowo we jummpin");
+                        gameObject.GetComponent<movement>().Jump();
+                    }
+                }
+
             }
         }
     }

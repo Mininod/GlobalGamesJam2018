@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpSpeed: 0
+  jumpSpeed: 10
 --- !u!114 &114203130622998148
 MonoBehaviour:
   m_ObjectHideFlags: 1

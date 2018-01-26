@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpSpeed: 0
+  jumpSpeed: 10
 --- !u!1001 &82716917
 Prefab:
   m_ObjectHideFlags: 0
@@ -135,11 +135,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4323233072843906, guid: fc17f9915b83eec48bdc65ebb515788a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.6
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: 4323233072843906, guid: fc17f9915b83eec48bdc65ebb515788a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.18
+      value: 4.43
       objectReference: {fileID: 0}
     - target: {fileID: 4323233072843906, guid: fc17f9915b83eec48bdc65ebb515788a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -180,6 +180,10 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.037846014
       objectReference: {fileID: 0}
+    - target: {fileID: 1545359435590510, guid: fc17f9915b83eec48bdc65ebb515788a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc17f9915b83eec48bdc65ebb515788a, type: 2}
   m_IsPrefabParent: 0
@@ -192,11 +196,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4010084688545574, guid: b9922081940260348b08a0882623992b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.067193
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 4010084688545574, guid: b9922081940260348b08a0882623992b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.32670075
+      value: -0.39
       objectReference: {fileID: 0}
     - target: {fileID: 4010084688545574, guid: b9922081940260348b08a0882623992b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -226,6 +230,16 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 5.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203130622998148, guid: b9922081940260348b08a0882623992b,
+        type: 2}
+      propertyPath: maxMovement
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 50500179539356040, guid: b9922081940260348b08a0882623992b,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114086947212392066, guid: b9922081940260348b08a0882623992b, type: 2}
@@ -320,6 +334,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1510656039 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1545359435590510, guid: fc17f9915b83eec48bdc65ebb515788a,
+    type: 2}
+  m_PrefabInternal: {fileID: 82716917}
+--- !u!114 &1510656040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1510656039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725177069e98d07448c03dd4f28963e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  jumpSpeed: 0
 --- !u!1 &2110290531
 GameObject:
   m_ObjectHideFlags: 0
