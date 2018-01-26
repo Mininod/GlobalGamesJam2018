@@ -9,7 +9,8 @@ public class MyType : MonoBehaviour {
         Player,
         Warrior,
         Archer,
-        Wizard
+        Wizard,
+        floor
     }
 
     public objectTag mytype;
