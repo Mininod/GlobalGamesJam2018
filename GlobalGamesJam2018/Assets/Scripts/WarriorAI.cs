@@ -8,45 +8,87 @@ public class WarriorAI : MonoBehaviour {
     private bool moveRight;
     private bool canJump;
     private bool chase;
-    private CircleCollider2D aggroRadius;
+   // private CircleCollider2D aggroRadius;
 	// Use this for initialization
 	void Start ()
     {
         moveRight = true;
         currentMovement = 0;
-        aggroRadius = gameObject.GetComponent<CircleCollider2D>();
+        //aggroRadius = gameObject.GetComponent<CircleCollider2D>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		if(currentMovement<maxMovement)
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right,100.0f);
+
+        if (hit)
         {
-            ++currentMovement;
-            // Run movement script
+            if(hit.collider.GetComponent<MyType>().mytype==MyType.objectTag.Player)
+            {
+                print("we Are attack");
+            }
+        }
+
+        if (chase == true)
+        {
+            //movementScript
         }
         else
         {
-            currentMovement = 0;
-            moveRight = !moveRight;
+            if (currentMovement < maxMovement)
+            {
+                ++currentMovement;
+                // Run movement script
+            }
+            else
+            {
+                currentMovement = 0;
+                moveRight = !moveRight;
+            }
         }
-        
 
 	}
 
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.GetComponent<MyType>())
+        {
+            if (other.GetComponent<MyType>().mytype ==MyType.objectTag.Player)
+            {
+                chase = true;
+                
+            }
+        }
     }
 
-    private void OnTriggerStay2D(Collision2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
+        if (other.GetComponent<MyType>())
+        {
+            if (other.GetComponent<MyType>().mytype == MyType.objectTag.Player)
+            {
+                chase = true;
 
+                if(gameObject.transform.position.x < other.transform.position.x)
+                {
+                    moveRight = true;
+                }
+                //if player is jumping jump;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-
+        if (other.GetComponent<MyType>())
+        {
+            if (other.GetComponent<MyType>().mytype != MyType.objectTag.Player)
+            {
+                chase = false;
+            }
+        }
     }
 }
