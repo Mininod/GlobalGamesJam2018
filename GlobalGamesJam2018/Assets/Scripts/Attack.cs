@@ -10,9 +10,23 @@ public class Attack : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+
 	}
  
-    //void ArrowAttack()
+    void ArrowAttack()
+    {
+
+    }
+
+    void SwordAttack()
+    {
+
+    }
+
+    void WizardAttack()
+    {
+
+    }
 }

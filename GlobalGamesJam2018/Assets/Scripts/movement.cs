@@ -58,12 +58,27 @@ public class movement : MonoBehaviour {
         Debug.DrawRay(transform.position, -transform.up, Color.red);
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.tag);
             if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.floor)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             }
         }
        
+    }
+
+    internal bool OnFloor()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 0.5f); //Change "10" to change range;
+        
+        if (hit.collider != null)
+        {
+            if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.floor)
+            {
+                return true; 
+            }
+        }
+        
+        return false;
+        
     }
 }
