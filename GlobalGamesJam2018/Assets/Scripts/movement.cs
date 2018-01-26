@@ -56,10 +56,11 @@ public class movement : MonoBehaviour {
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 0.5f); //Change "10" to change range;
         Debug.DrawRay(transform.position, -transform.up, Color.red);
+
         if (hit.collider != null)
         {
             Debug.Log(hit.collider);
-            if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.Floor)
+            if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Floor)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             }
