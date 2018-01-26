@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50500179539356040}
   - component: {fileID: 61497093280228056}
   - component: {fileID: 114203130622998148}
+  - component: {fileID: 58518767803664710}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -63,6 +64,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58518767803664710
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179207307362144}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!61 &61497093280228056
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -99,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89510d20e13b6241a2a23f6c939bc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMovement: 0
 --- !u!212 &212426095010834342
 SpriteRenderer:
   m_ObjectHideFlags: 1

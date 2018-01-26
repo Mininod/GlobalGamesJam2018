@@ -6,12 +6,15 @@ public class WarriorAI : MonoBehaviour {
     public float maxMovement;
     private float currentMovement;
     private bool moveRight;
-
+    private bool canJump;
+    private bool chase;
+    private CircleCollider2D aggroRadius;
 	// Use this for initialization
 	void Start ()
     {
         moveRight = true;
         currentMovement = 0;
+        aggroRadius = gameObject.GetComponent<CircleCollider2D>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +30,23 @@ public class WarriorAI : MonoBehaviour {
             currentMovement = 0;
             moveRight = !moveRight;
         }
+        
 
 	}
+
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+    }
+
+    private void OnTriggerStay2D(Collision2D other)
+    {
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+
+    }
 }
