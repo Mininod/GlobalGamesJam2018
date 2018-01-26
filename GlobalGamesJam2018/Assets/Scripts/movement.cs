@@ -59,7 +59,7 @@ public class movement : MonoBehaviour {
         if (hit.collider != null)
         {
             Debug.Log(hit.collider.tag);
-            if (hit.collider.gameObject.tag == "Floor")
+            if (gameObject.GetComponent<MyType>().mytype == MyType.objectTag.floor)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             }
