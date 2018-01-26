@@ -21,7 +21,7 @@ public class WarriorAI : MonoBehaviour {
 	void Update ()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right,100.0f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right,2.0f);
 
         if (hit)
         {
