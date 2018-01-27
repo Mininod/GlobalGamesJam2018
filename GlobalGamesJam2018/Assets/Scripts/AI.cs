@@ -14,13 +14,17 @@ public class AI : MonoBehaviour {
     private int facingMultiplier;
     private GameObject player;
 
+    private float maxCoolDown;
+    public float curCoolDown;
 
 
     // Use this for initialization
     void Start ()
     {
+        maxCoolDown = 2;
+        curCoolDown = 0;
         soulTimer = 1000; 
-        hp = 10;
+        hp = 100;
         Debug.Log("SOUL TIME AND HP SET TO 10 IN START FOR DEBUGGING");
         moveRight = true;
         currentMovement = 0;
@@ -29,6 +33,7 @@ public class AI : MonoBehaviour {
     }
     void OnEnable()
     {
+        maxCoolDown = 2;
         moveRight = true;
         currentMovement = 0;
         inAttackRange = false;
@@ -69,6 +74,11 @@ public class AI : MonoBehaviour {
                 break;
             case MyType.objectTag.Warrior:
 
+                if(curCoolDown < maxCoolDown)
+                {
+                    curCoolDown += Time.deltaTime;
+                }
+
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(transform.position.x + transform.right.x, transform.position.y) * facingMultiplier, 2.0f);
                 //Debug.DrawLine(transform.position, transform.right);
                 Debug.Log(transform.right);
@@ -78,9 +88,13 @@ public class AI : MonoBehaviour {
                 {
                     if (!hit.collider.isTrigger && hit.collider.GetComponent<IsActivePlayer>() == true && hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                     {
-                         print("we Are attack");
-                         inAttackRange = true;
-                         GetComponentInChildren<Attack>().SwordAttack();
+                        if (maxCoolDown < curCoolDown)
+                        {
+                            print("we Are attack");
+                            inAttackRange = true;
+                            GetComponentInChildren<Attack>().SwordAttack();
+                            curCoolDown = 0;
+                        }
                     }
                     else
                     {
