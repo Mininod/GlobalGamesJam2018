@@ -27,38 +27,57 @@ public class AI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right,2.0f);
-        
-        if (hit)
+
+        switch (gameObject.GetComponent<MyType>().mytype)
         {
-            if (hit.collider.GetComponent<MyType>() == true)
-            {
-                if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Player)
+            case MyType.objectTag.Player:
+                break;
+            case MyType.objectTag.Warrior:
+
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 2.0f);
+
+                if (hit)
                 {
-                    print("we Are attack");
+                    if (hit.collider.GetComponent<MyType>() == true)
+                    {
+                        if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Player)
+                        {
+                            print("we Are attack");
+                        }
+                    }
                 }
-            }
+
+                if (chase == true)
+                {
+                    //movementScript
+                    gameObject.GetComponent<movement>().Movement(moveRight);
+                }
+                else
+                {
+                    if (currentMovement < maxMovement)
+                    {
+                        ++currentMovement;
+                        gameObject.GetComponent<movement>().Movement(moveRight);
+                    }
+                    else
+                    {
+                        currentMovement = -maxMovement;
+                        moveRight = !moveRight;
+                    }
+                }
+
+                break;
+            case MyType.objectTag.Archer:
+                break;
+            case MyType.objectTag.Wizard:
+                break;
+            case MyType.objectTag.Floor:
+                break;
+            default:
+                break;
         }
 
-        if (chase == true)
-        {
-            //movementScript
-            gameObject.GetComponent<movement>().Movement(moveRight);
-        }
-        else
-        {
-            if (currentMovement < maxMovement)
-            {
-                ++currentMovement;
-                gameObject.GetComponent<movement>().Movement(moveRight);
-            }
-            else
-            {
-                currentMovement = -maxMovement;
-                moveRight = !moveRight;
-            }
-        }
+        
 
     }
 
