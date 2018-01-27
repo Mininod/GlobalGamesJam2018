@@ -46,7 +46,8 @@ public class AI : MonoBehaviour {
                     facingMultiplier = -1;
                 }
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right*facingMultiplier, 5.0f);
-                Debug.DrawRay(transform.position, transform.right, Color.blue);
+                //Debug.DrawRay(transform.position, transform.right, Color.blue);
+
                 if (hit)
                 {
                     if (hit.collider.GetComponent<IsActivePlayer>() == true)
@@ -74,15 +75,17 @@ public class AI : MonoBehaviour {
                         {
                             ++currentMovement;
                             gameObject.GetComponent<movement>().Movement(moveRight);
+
                         }
                         else
                         {
                             currentMovement = -maxMovement;
-                            GetComponent<Transform>().localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                            //GetComponent<Transform>().localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                             moveRight = !moveRight;
                         }
                     }
                 }
+                GetComponent<Transform>().localScale = new Vector3(facingMultiplier, transform.localScale.y, transform.localScale.z);
 
                 break;
             case MyType.objectTag.Archer:
