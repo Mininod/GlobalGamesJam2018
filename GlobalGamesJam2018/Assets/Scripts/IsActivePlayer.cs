@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IsActivePlayer : MonoBehaviour {
 
-    private bool ActivePlayer;
+    public bool ActivePlayer;
 
 	// Use this for initialization
 	void Start ()
@@ -21,8 +21,8 @@ public class IsActivePlayer : MonoBehaviour {
     {
         return ActivePlayer;
     }
-    public void setActivePlayer(bool input)
+    public void setActivePlayer()
     {
-        ActivePlayer = input;
+        ActivePlayer = !ActivePlayer;
     }
 }

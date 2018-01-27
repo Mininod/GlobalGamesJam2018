@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GetComponent<IsActivePlayer>().setActivePlayer(true);
+        GetComponent<IsActivePlayer>().setActivePlayer();
         if (soulTimer > 0)
         {
             soulTimerActive = true; //DELETE ME ONCE YOU NO LONGER NEED ME :,(
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
                     GetComponent<AI>().SetSoulTimer(soulTimer);
                     enemyLastHit.GetComponent<Player>().soulTimer = enemyLastHit.GetComponent<AI>().GetSoulTimer();
                     enemyLastHit.GetComponent<AI>().enabled = false; //Disables AI of target
-                    GetComponent<IsActivePlayer>().setActivePlayer(false);
+                    GetComponent<IsActivePlayer>().setActivePlayer();
                     Destroy(GetComponent<Player>()); //Destory This Script 
                 }
             }
