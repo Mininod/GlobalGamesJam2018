@@ -32,9 +32,12 @@ public class AI : MonoBehaviour {
         
         if (hit)
         {
-            if(hit.collider.GetComponent<MyType>().mytype==MyType.objectTag.Player)
+            if (hit.collider.GetComponent<MyType>() == true)
             {
-                print("we Are attack");
+                if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Player)
+                {
+                    print("we Are attack");
+                }
             }
         }
 
