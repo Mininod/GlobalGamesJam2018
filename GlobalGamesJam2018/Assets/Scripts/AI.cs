@@ -7,11 +7,12 @@ public class AI : MonoBehaviour {
     private float currentMovement;
     private bool moveRight;
     private bool canJump;
-    private bool chase;
-    private bool inAttackRange;
+    public bool chase;
+    public bool inAttackRange;
     private float soulTimer;
     private float hp;
     private int facingMultiplier;
+    private GameObject player;
 
 
 
@@ -37,8 +38,29 @@ public class AI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (player.GetComponent<IsActivePlayer>().getIsActivePlayer() == true && chase == true)
+        {
+            Debug.Log("Run555");
+            chase = true;
 
-        switch (gameObject.GetComponent<MyType>().mytype)
+            if (gameObject.transform.position.x < player.transform.position.x)
+            {
+                moveRight = true;
+                gameObject.GetComponent<movement>().Movement(moveRight);
+
+            }
+            if (gameObject.transform.position.x > player.transform.position.x)
+            {
+                moveRight = false;
+                gameObject.GetComponent<movement>().Movement(moveRight);
+
+            }
+        }
+
+
+
+
+            switch (gameObject.GetComponent<MyType>().mytype)
         {
             case MyType.objectTag.Player:
                 break;
@@ -59,20 +81,19 @@ public class AI : MonoBehaviour {
 
                 if (hit)
                 {
-                    if (hit.collider.GetComponent<IsActivePlayer>() == true)
+                    if (hit.collider.GetComponent<IsActivePlayer>() == true && hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                     {
-                        
-                        if (hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
-                        {
-                            print("we Are attack");
-                            inAttackRange = true;
-                            GetComponentInChildren<Attack>().SwordAttack();
-                        }
+                         print("we Are attack");
+                         inAttackRange = true;
+                         GetComponentInChildren<Attack>().SwordAttack();
                     }
                     else
                     {
                         inAttackRange = false;
                     }
+                }
+                {
+                    inAttackRange = false;
                 }
 
                 if (inAttackRange == false)
@@ -135,18 +156,23 @@ public class AI : MonoBehaviour {
         {
             if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
             {
+                player = other.gameObject;
+            }
+
+            if (player.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+            {
                 chase = true;
 
-                if(gameObject.transform.position.x < other.transform.position.x)
-                {
-                    moveRight = true;
+                //if(gameObject.transform.position.x < player.transform.position.x)
+                //{
+                //    moveRight = true;
                     
-                }
-                if (gameObject.transform.position.x > other.transform.position.x)
-                {
-                    moveRight = false;
+                //}
+                //if (gameObject.transform.position.x > player.transform.position.x)
+                //{
+                //    moveRight = false;
                     
-                }
+                //}
                 //if player is jumping jump;
                 if (other.GetComponent<movement>())
                 {
