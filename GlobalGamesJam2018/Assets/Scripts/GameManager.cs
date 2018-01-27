@@ -27,6 +27,6 @@ public class GameManager : MonoBehaviour {
             // game over? / lose a life
             print("we timed out");
         }
-        //levelTimerText.text=game
+        levelTimerText.text = (System.Math.Ceiling(currentLevelTimer)).ToString();
 	}
 }
