@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarriorAI : MonoBehaviour {
+public class AI : MonoBehaviour {
     public float maxMovement;
     private float currentMovement;
     private bool moveRight;
     private bool canJump;
     private bool chase;
+    private float soulTimer;
+    private float hp;
 
-    
-  
-	// Use this for initialization
-	void Start ()
+
+
+    // Use this for initialization
+    void Start ()
     {
+        soulTimer = 10; 
+        hp = 10;
+        Debug.Log("SOUL TIME AND HP SET TO 10 IN START FOR DEBUGGING");
         moveRight = true;
         currentMovement = 0;
         
@@ -107,5 +112,15 @@ public class WarriorAI : MonoBehaviour {
                 chase = false;
             }
         }
+    }
+
+    public float GetSoulTimer()
+    {
+        return soulTimer;
+    }
+
+    public float GetHp()
+    {
+        return hp;
     }
 }

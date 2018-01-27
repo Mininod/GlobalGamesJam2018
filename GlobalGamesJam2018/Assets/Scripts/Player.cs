@@ -49,7 +49,7 @@ public class Player : MonoBehaviour {
             {
                 if (enemyLastHit.transform.position.x >= transform.position.x - soulTransmitDistance && enemyLastHit.transform.position.x <= transform.position.x + soulTransmitDistance)
                 {
-                    Debug.Log("Good to transmit bb");
+                    Debug.Log("Good to transmit bb"); 
                 }
             }
         }
