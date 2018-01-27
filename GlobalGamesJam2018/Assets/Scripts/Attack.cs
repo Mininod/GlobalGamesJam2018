@@ -53,7 +53,7 @@ public class Attack : MonoBehaviour {
                 if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                 {
                     other.GetComponent<Player>().takeDamage(5); //magic number scrub //
-                    Debug.DrawRay(transform.position, transform.right, Color.green);
+                    
                     trigger.enabled = false;
                 }
             }
@@ -69,7 +69,7 @@ public class Attack : MonoBehaviour {
                         if (other.GetComponent<AI>())
                         {
                             other.GetComponent<AI>().takeDamage(5); // maggic ass damage
-                            Debug.DrawRay(transform.position, transform.right, Color.green);
+                            
                             trigger.enabled = false;
                         }
                     }

@@ -51,7 +51,7 @@ public class AI : MonoBehaviour {
                 {
                     if (hit.collider.GetComponent<IsActivePlayer>() == true)
                     {
-                        //GetComponentInChildren<Attack>().SwordAttack();
+                        
                         if (hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                         {
                             print("we Are attack");
