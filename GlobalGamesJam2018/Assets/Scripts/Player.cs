@@ -58,9 +58,11 @@ public class Player : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("CLICK");
                 switch (gameObject.GetComponent<MyType>().mytype)
                 {
                     case MyType.objectTag.Warrior:
+                        Debug.Log("PLAYER SWORD ATTACK");
                         GetComponentInChildren<Attack>().SwordAttack();
                         break;
                     case MyType.objectTag.Archer:

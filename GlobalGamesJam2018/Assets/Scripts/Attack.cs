@@ -46,7 +46,6 @@ public class Attack : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        
             if (other.GetComponent<IsActivePlayer>() == true)
             {
                 if (GetComponent<IsActivePlayer>() == true)
@@ -56,9 +55,7 @@ public class Attack : MonoBehaviour {
                         if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                         {
                             other.GetComponent<Player>().takeDamage(5); //magic number scrub //
-
-                            trigger.enabled = false;
-                         }
+                        }
                     }
                 }
             }
@@ -73,7 +70,7 @@ public class Attack : MonoBehaviour {
                     {
                         if (other.GetComponent<AI>())
                         {
-                            Debug.Log("AHRHAHRHAHR");
+                            Debug.Log("GET");
                             other.GetComponent<AI>().takeDamage(5); // maggic ass damage
                             trigger.enabled = false;
                             GetComponentInParent<Player>().SetEnemyLastHit(other.gameObject);
@@ -82,5 +79,6 @@ public class Attack : MonoBehaviour {
                 }
             }
         }
+        trigger.enabled = false;
     }
 }
