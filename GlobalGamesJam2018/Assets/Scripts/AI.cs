@@ -35,17 +35,18 @@ public class AI : MonoBehaviour {
                 break;
             case MyType.objectTag.Warrior:
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 100.0f);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 10.0f);
                 Debug.DrawRay(transform.position, transform.right, Color.blue);
                 if (hit)
                 {
                     if (hit.collider.GetComponent<IsActivePlayer>() == true)
                     {
+                        //GetComponentInChildren<Attack>().SwordAttack();
                         if (hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                         {
                             print("we Are attack");
                             inAttackRange = true;
-                            GetComponent<Attack>().SwordAttack();
+                            GetComponentInChildren<Attack>().SwordAttack();
                         }
                     }
                 }

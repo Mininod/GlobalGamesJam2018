@@ -33,7 +33,7 @@ public class Attack : MonoBehaviour {
             if (gameObject.GetComponentInParent<MyType>().mytype==MyType.objectTag.Warrior)
             {
                 //play animation 
-
+                print("should be attacking");
                 // activate hitbox
                 trigger.enabled = true;
             }
@@ -47,22 +47,18 @@ public class Attack : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<MyType>())
-        {
-            //if(other.GetComponent<MyType>().mytype == MyType.objectTag.Player)
-            //{
-
-            //}
+        
             if (other.GetComponent<IsActivePlayer>() == true)
             {
                 if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                 {
                     other.GetComponent<Player>().takeDamage(5); //magic number scrub //
                     Debug.DrawRay(transform.position, transform.right, Color.green);
+                    trigger.enabled = false;
                 }
             }
-        }
-        if (other.GetComponent<IsActivePlayer>() == true)
+
+        if (GetComponent<IsActivePlayer>() == true)
         {
             if (GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
             {
@@ -74,6 +70,7 @@ public class Attack : MonoBehaviour {
                         {
                             other.GetComponent<AI>().takeDamage(5); // maggic ass damage
                             Debug.DrawRay(transform.position, transform.right, Color.green);
+                            trigger.enabled = false;
                         }
                     }
                 }
