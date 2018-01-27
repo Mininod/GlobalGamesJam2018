@@ -73,7 +73,7 @@ public class AI : MonoBehaviour {
 
                 if (hit)
                 {
-                    if (hit.collider.GetComponent<IsActivePlayer>() == true && hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+                    if (!hit.collider.isTrigger && hit.collider.GetComponent<IsActivePlayer>() == true && hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                     {
                          print("we Are attack");
                          inAttackRange = true;
@@ -88,15 +88,7 @@ public class AI : MonoBehaviour {
                 {
                     inAttackRange = false;
                 }
-
-                if (inAttackRange == false)
-                {
-                    if (chase == true)
-                    {
-                        //movementScript
-                        gameObject.GetComponent<movement>().Movement(moveRight);
-                    }
-                    else
+                if (chase == false)
                     {
                         if (currentMovement < maxMovement)
                         {
@@ -110,9 +102,7 @@ public class AI : MonoBehaviour {
                             //GetComponent<Transform>().localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                             moveRight = !moveRight;
                         }
-
                     }
-                }
                 GetComponent<Transform>().localScale = new Vector3(facingMultiplier, transform.localScale.y, transform.localScale.z);
 
                 break;
@@ -175,6 +165,7 @@ public class AI : MonoBehaviour {
             if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
             {
                 chase = false;
+                inAttackRange = false;
             }
         }
     }
