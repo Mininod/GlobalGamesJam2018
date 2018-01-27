@@ -58,4 +58,9 @@ public class Player : MonoBehaviour {
             print("rip boi");
         }
     }
+
+    public void takeDamage(int damage)
+    {
+        hp -= damage;
+    }
 }

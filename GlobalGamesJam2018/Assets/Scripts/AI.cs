@@ -145,4 +145,8 @@ public class AI : MonoBehaviour {
     {
         return hp;
     }
+    public void takeDamage(int damage)
+    {
+        hp -= damage;
+    }
 }
