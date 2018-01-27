@@ -50,11 +50,14 @@ public class Attack : MonoBehaviour {
         
             if (other.GetComponent<IsActivePlayer>() == true)
             {
-                if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+                if (GetComponent<IsActivePlayer>().getIsActivePlayer() != true)
                 {
-                    other.GetComponent<Player>().takeDamage(5); //magic number scrub //
-                    
-                    trigger.enabled = false;
+                    if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+                    {
+                        other.GetComponent<Player>().takeDamage(5); //magic number scrub //
+
+                        trigger.enabled = false;
+                    }
                 }
             }
 
@@ -69,8 +72,8 @@ public class Attack : MonoBehaviour {
                         if (other.GetComponent<AI>())
                         {
                             other.GetComponent<AI>().takeDamage(5); // maggic ass damage
-                            
                             trigger.enabled = false;
+                            GetComponent<Player>().SetEnemyLastHit(other.gameObject);
                         }
                     }
                 }
