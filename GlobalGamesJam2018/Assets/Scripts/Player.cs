@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        GetComponent<IsActivePlayer>().setActivePlayer();
         facingDirection = true;
         if (soulTimer > 0)
         {
@@ -102,7 +102,6 @@ public class Player : MonoBehaviour
                     enemyLastHit.GetComponent<Player>().soulTimer = enemyLastHit.GetComponent<AI>().GetSoulTimer();
                     enemyLastHit.GetComponent<AI>().enabled = false; //Disables AI of target
                     GetComponent<IsActivePlayer>().setActivePlayer();
-                    enemyLastHit.GetComponent<IsActivePlayer>().setActivePlayer();
                     Destroy(GetComponent<Player>()); //Destory This Script 
                 }
             }
