@@ -15,7 +15,7 @@ public class lastHitIndicator : MonoBehaviour {
 	void Update () {
         if (lastHit != null)
         {
-            transform.position = new Vector2(lastHit.transform.position.x -.5f, lastHit.transform.position.y +1);
+            transform.position = new Vector2(lastHit.transform.position.x -0.5f, lastHit.transform.position.y +1.5f);
         }
 	}
 }
