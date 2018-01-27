@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
                         GetComponent<Attack>().SwordAttack();
                         break;
                     case MyType.objectTag.Archer:
-                        
                         break;
                     case MyType.objectTag.Wizard:
                         break;
