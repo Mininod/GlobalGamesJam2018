@@ -6,7 +6,7 @@ public class FireBall : MonoBehaviour {
 
 
     internal Collider2D Source;
-    private float damage;
+    private int damage;
     // Use this for initialization
     void Start ()
     {
@@ -25,19 +25,31 @@ public class FireBall : MonoBehaviour {
         {
             if (other.GetType() == typeof(BoxCollider2D))
             {
-                if (other.GetComponent<MyType>())
-                {
-                    if (other.GetComponent<MyType>().mytype != MyType.objectTag.Player)
-                    {
 
+                if (other.GetComponent<IsActivePlayer>() == true)
+                {
+
+                    if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+                    {
+                        other.GetComponent<Player>().takeDamage(DealDamage());
+                    }
+                }
+
+                if (other.GetComponent<IsActivePlayer>() == true)
+                {
+
+                    if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() != true)
+                    {
+                        other.GetComponent<AI>().takeDamage(DealDamage());
                     }
                 }
             }
+            
         }
+
     }
-    private float DealDamage(Collider2D other)
+    private int DealDamage()
     {
-        
 
         Destroy(gameObject);
         return damage;
