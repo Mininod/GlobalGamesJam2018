@@ -11,6 +11,7 @@ public class AI : MonoBehaviour {
     private bool inAttackRange;
     private float soulTimer;
     private float hp;
+    private int facingMultiplier;
 
 
 
@@ -23,7 +24,8 @@ public class AI : MonoBehaviour {
         moveRight = true;
         currentMovement = 0;
         inAttackRange = false;
-	}
+        facingMultiplier = 1;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -35,7 +37,15 @@ public class AI : MonoBehaviour {
                 break;
             case MyType.objectTag.Warrior:
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 10.0f);
+                if (moveRight == true)
+                {
+                    facingMultiplier=1;
+                }
+                else
+                {
+                    facingMultiplier = -1;
+                }
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right*facingMultiplier, 5.0f);
                 Debug.DrawRay(transform.position, transform.right, Color.blue);
                 if (hit)
                 {
