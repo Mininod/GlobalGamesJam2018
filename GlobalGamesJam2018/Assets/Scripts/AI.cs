@@ -119,14 +119,13 @@ public class AI : MonoBehaviour {
                             moveRight = !moveRight;
                         }
                     }
-                GetComponent<Transform>().localScale = new Vector3(facingMultiplier, transform.localScale.y, transform.localScale.z);
 
                 break;
             case MyType.objectTag.Archer:
                 break;
             case MyType.objectTag.Wizard:
 
-                hit = Physics2D.Raycast(transform.position, transform.right * facingMultiplier, 2.0f);
+                hit = Physics2D.Raycast(transform.position, transform.right * facingMultiplier, 5.0f);
                 if (hit)
                 {
                     if (!hit.collider.isTrigger && hit.collider.GetComponent<IsActivePlayer>() == true && hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
@@ -135,7 +134,7 @@ public class AI : MonoBehaviour {
                         {
                             print("we Are attack");
                             inAttackRange = true;
-                            GetComponentInChildren<Attack>().StaffAttack();
+                            GetComponentInChildren<Attack>().StaffAttack(facingMultiplier);
                             curCoolDown = 0;
                         }
                     }
@@ -155,8 +154,8 @@ public class AI : MonoBehaviour {
             default:
                 break;
         }
+        GetComponent<Transform>().localScale = new Vector3(facingMultiplier, transform.localScale.y, transform.localScale.z);
 
-        
 
     }
 

@@ -609,6 +609,17 @@ Prefab:
       propertyPath: m_Name
       value: Warrior (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114015052292465864, guid: b9922081940260348b08a0882623992b,
+        type: 2}
+      propertyPath: mytype
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114691463002332728, guid: b9922081940260348b08a0882623992b,
+        type: 2}
+      propertyPath: fireBall
+      value: 
+      objectReference: {fileID: 1212142444571756, guid: 67f8c9ca80ccbb841948187f1ed7d5db,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9922081940260348b08a0882623992b, type: 2}
   m_IsPrefabParent: 0

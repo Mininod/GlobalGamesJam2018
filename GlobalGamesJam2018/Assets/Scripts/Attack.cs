@@ -40,21 +40,15 @@ public class Attack : MonoBehaviour {
         }
     }
 
-    public void StaffAttack(bool isMoveRight)
+    public void StaffAttack(int rightamount)
     {
         if (gameObject.GetComponentInParent<MyType>())
         {
             if (gameObject.GetComponentInParent<MyType>().mytype == MyType.objectTag.Wizard)
             {
                 GameObject foo = Instantiate(fireBall,new Vector2(gameObject.transform.position.x,gameObject.transform.position.y), Quaternion.identity);
-                if (isMoveRight)
-                {
-                    foo.GetComponent<Rigidbody2D>().velocity = transform.right;
-                }
-                else
-                {
-                    foo.GetComponent<Rigidbody2D>().velocity = -transform.right;
-                }
+                foo.GetComponent<Rigidbody2D>().velocity = transform.right * rightamount * 10;
+
             }
         }
     }
