@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float hp;
     public float soulTimer;
     public float soulTransmitDistance;
+    public GameObject hitIndicator;
     private bool soulTimerActive;
     private bool facingDirection;
     private GameObject enemyLastHit;
@@ -96,6 +97,7 @@ public class Player : MonoBehaviour
                     Debug.Log(enemyLastHit.name);
                     enemyLastHit.AddComponent<Player>();
                     enemyLastHit.GetComponent<Player>().hp = enemyLastHit.GetComponent<AI>().GetHp();
+                    enemyLastHit.GetComponent<Player>().hitIndicator = hitIndicator;
                     GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI
                     GetComponent<AI>().SetSoulTimer(soulTimer);
                     enemyLastHit.GetComponent<Player>().soulTransmitDistance = soulTransmitDistance;

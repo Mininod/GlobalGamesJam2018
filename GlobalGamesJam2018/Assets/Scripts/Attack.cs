@@ -73,6 +73,7 @@ public class Attack : MonoBehaviour {
                             Debug.Log("GET");
                             other.GetComponent<AI>().takeDamage(5); // maggic ass damage
                             GetComponentInParent<Player>().SetEnemyLastHit(other.gameObject);
+                            GetComponentInParent<Player>().hitIndicator.GetComponent<lastHitIndicator>().lastHit = other.gameObject;
                         }
                     }
                 }
