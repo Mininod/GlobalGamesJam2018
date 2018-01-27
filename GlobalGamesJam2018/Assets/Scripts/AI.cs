@@ -8,6 +8,7 @@ public class AI : MonoBehaviour {
     private bool moveRight;
     private bool canJump;
     private bool chase;
+    private bool inAttackRange;
     private float soulTimer;
     private float hp;
 
@@ -21,7 +22,7 @@ public class AI : MonoBehaviour {
         Debug.Log("SOUL TIME AND HP SET TO 10 IN START FOR DEBUGGING");
         moveRight = true;
         currentMovement = 0;
-        
+        inAttackRange = false;
 	}
 	
 	// Update is called once per frame
@@ -34,36 +35,41 @@ public class AI : MonoBehaviour {
                 break;
             case MyType.objectTag.Warrior:
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 2.0f);
-
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 100.0f);
+                Debug.DrawRay(transform.position, transform.right, Color.blue);
                 if (hit)
                 {
-                    if (hit.collider.GetComponent<MyType>() == true)
+                    if (hit.collider.GetComponent<IsActivePlayer>() == true)
                     {
-                        if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Player)
+                        if (hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                         {
                             print("we Are attack");
+                            inAttackRange = true;
                             GetComponent<Attack>().SwordAttack();
                         }
                     }
                 }
 
-                if (chase == true)
+                if (inAttackRange == false)
                 {
-                    //movementScript
-                    gameObject.GetComponent<movement>().Movement(moveRight);
-                }
-                else
-                {
-                    if (currentMovement < maxMovement)
+                    if (chase == true)
                     {
-                        ++currentMovement;
+                        //movementScript
                         gameObject.GetComponent<movement>().Movement(moveRight);
                     }
                     else
                     {
-                        currentMovement = -maxMovement;
-                        moveRight = !moveRight;
+                        if (currentMovement < maxMovement)
+                        {
+                            ++currentMovement;
+                            gameObject.GetComponent<movement>().Movement(moveRight);
+                        }
+                        else
+                        {
+                            currentMovement = -maxMovement;
+                            GetComponent<Transform>().localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                            moveRight = !moveRight;
+                        }
                     }
                 }
 
@@ -85,9 +91,9 @@ public class AI : MonoBehaviour {
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<MyType>())
+        if (other.GetComponent<IsActivePlayer>())
         {
-            if (other.GetComponent<MyType>().mytype ==MyType.objectTag.Player)
+            if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
             {
                 chase = true;
    
@@ -97,9 +103,9 @@ public class AI : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.GetComponent<MyType>())
+        if (other.GetComponent<IsActivePlayer>())
         {
-            if (other.GetComponent<MyType>().mytype == MyType.objectTag.Player)
+            if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
             {
                 chase = true;
 
@@ -128,9 +134,9 @@ public class AI : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<MyType>())
+        if (other.GetComponent<IsActivePlayer>())
         {
-            if (other.GetComponent<MyType>().mytype != MyType.objectTag.Player)
+            if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
             {
                 chase = false;
             }
