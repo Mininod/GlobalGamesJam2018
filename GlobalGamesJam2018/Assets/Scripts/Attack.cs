@@ -44,8 +44,10 @@ public class Attack : MonoBehaviour {
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other1)
     {
+        GameObject other = other1.gameObject;
+        Debug.Log("Attack Trigger read");
             if (other.GetComponent<IsActivePlayer>() == true)
             {
                 if (GetComponentInParent<IsActivePlayer>() == true)
