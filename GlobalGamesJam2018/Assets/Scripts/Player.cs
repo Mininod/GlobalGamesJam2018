@@ -14,9 +14,13 @@ public class Player : MonoBehaviour
     private bool soulTimerActive;
     private bool facingDirection;
     private GameObject enemyLastHit;
+    private GameObject thiscamera;
     // Use this for initialization
     void Start()
     {
+        thiscamera = Camera.main.gameObject;
+        thiscamera.GetComponent<FollowPlayer>().setNewPlayer(gameObject);
+
         GetComponent<IsActivePlayer>().setActivePlayer();
         facingDirection = true;
         if (soulTimer > 0)
@@ -91,20 +95,24 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if (enemyLastHit.transform.position.x >= transform.position.x - soulTransmitDistance && enemyLastHit.transform.position.x <= transform.position.x + soulTransmitDistance)
+                if (enemyLastHit != null)
                 {
-                    Debug.Log("Good to transmit bb");
-                    Debug.Log(enemyLastHit.name);
-                    enemyLastHit.AddComponent<Player>();
-                    enemyLastHit.GetComponent<Player>().hp = enemyLastHit.GetComponent<AI>().GetHp();
-                    enemyLastHit.GetComponent<Player>().hitIndicator = hitIndicator;
-                    GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI
-                    GetComponent<AI>().SetSoulTimer(soulTimer);
-                    enemyLastHit.GetComponent<Player>().soulTransmitDistance = soulTransmitDistance;
-                    enemyLastHit.GetComponent<Player>().soulTimer = enemyLastHit.GetComponent<AI>().GetSoulTimer();
-                    enemyLastHit.GetComponent<AI>().enabled = false; //Disables AI of target
-                    GetComponent<IsActivePlayer>().setActivePlayer();
-                    Destroy(GetComponent<Player>()); //Destory This Script 
+                    if (enemyLastHit.transform.position.x >= transform.position.x - soulTransmitDistance && enemyLastHit.transform.position.x <= transform.position.x + soulTransmitDistance)
+                    {
+                        Debug.Log("Good to transmit bb");
+                        Debug.Log(enemyLastHit.name);
+                        enemyLastHit.AddComponent<Player>();
+                        enemyLastHit.GetComponent<Player>().hp = enemyLastHit.GetComponent<AI>().GetHp();
+                        enemyLastHit.GetComponent<Player>().hitIndicator = hitIndicator;
+                        GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI
+                        GetComponent<AI>().SetSoulTimer(soulTimer);
+                        enemyLastHit.GetComponent<Player>().soulTransmitDistance = soulTransmitDistance;
+                        enemyLastHit.GetComponent<Player>().soulTimer = enemyLastHit.GetComponent<AI>().GetSoulTimer();
+                        enemyLastHit.GetComponent<AI>().enabled = false; //Disables AI of target
+                        GetComponent<IsActivePlayer>().setActivePlayer();
+                        enemyLastHit.GetComponent<Player>().enemyLastHit = null;
+                        Destroy(GetComponent<Player>()); //Destory This Script 
+                    }
                 }
             }
         }
