@@ -42,4 +42,9 @@ public class FireBall : MonoBehaviour {
         Destroy(gameObject);
         return damage;
     }
+
+    public void setSource(Collider2D other)
+    {
+        Source = other;
+    }
 }
