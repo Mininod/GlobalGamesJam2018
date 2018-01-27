@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
      // transfer code 
     public float hp;
     public float soulTimer;
-
+    private bool soulTimerActive;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,7 +16,14 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
-    { 
+    {   
+        if(soulTimerActive == true)
+        {
+            soulTimer -= Time.deltaTime;
+            if(soulTimer<0)
+            {
+                soulTimerActive = false;
+            }
             if (Input.GetKey(KeyCode.A))
             {
                 GetComponent<movement>().Movement(false);
@@ -31,6 +38,10 @@ public class Player : MonoBehaviour {
             {
                 GetComponent<movement>().Jump();
             }
-               
+        }
+        else
+        {
+            print("rip boi");
+        }
     }
 }
