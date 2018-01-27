@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
 
-     // transfer code 
+    // transfer code 
     public float hp;
     public float soulTimer;
     public float soulTransmitDistance;
     private bool soulTimerActive;
-    public GameObject enemyLastHit;
-	// Use this for initialization
-	void Start () {
+    private GameObject enemyLastHit;
+    // Use this for initialization
+    void Start()
+    {
         if (soulTimer > 0)
         {
             soulTimerActive = true; //DELETE ME ONCE YOU NO LONGER NEED ME :,(
         }
-        GetComponent<IsActivePlayer>().setActivePlayer(true);
 
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         if (soulTimerActive == true)
         {
@@ -46,11 +47,23 @@ public class Player : MonoBehaviour {
                 GetComponent<movement>().Jump();
             }
 
-            if (Input.GetKey(KeyCode.F))
+            //debug
+            enemyLastHit = GameObject.Find("Warrior"); //Make a way to find the enemy last hit
+            //debug
+
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 if (enemyLastHit.transform.position.x >= transform.position.x - soulTransmitDistance && enemyLastHit.transform.position.x <= transform.position.x + soulTransmitDistance)
                 {
-                    Debug.Log("Good to transmit bb"); 
+                    Debug.Log("Good to transmit bb");
+                    enemyLastHit.AddComponent<Player>();
+                    enemyLastHit.GetComponent<Player>().hp = enemyLastHit.GetComponent<AI>().GetHp();
+                    GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI
+                    //SET AI SOUL TIMER TO PLAYER SOUL TIMER
+                    enemyLastHit.GetComponent<Player>().soulTimer = enemyLastHit.GetComponent<AI>().GetSoulTimer();
+
+                    enemyLastHit.GetComponent<AI>().enabled = false; //Disables AI of target
+                    Destroy(GetComponent<Player>()); //Destory This Script 
                 }
             }
         }
@@ -60,8 +73,10 @@ public class Player : MonoBehaviour {
         }
     }
 
+
     public void takeDamage(int damage)
     {
         hp -= damage;
     }
+
 }
