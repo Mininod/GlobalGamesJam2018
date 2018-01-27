@@ -35,6 +35,11 @@ public class movement : MonoBehaviour {
         
     }
 
+    internal void StopMovement()
+    {
+        rb.velocity = new Vector3(0, rb.velocity.y);
+    }
+
     internal void Jump()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, (GetComponent<SpriteRenderer>().bounds.size.y / 2)+0.1f); //Change "10" to change range;

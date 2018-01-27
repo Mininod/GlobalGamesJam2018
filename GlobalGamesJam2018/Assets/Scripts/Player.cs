@@ -33,14 +33,18 @@ public class Player : MonoBehaviour
             {
                 soulTimerActive = false;
             }
+
             if (Input.GetKey(KeyCode.A))
             {
                 GetComponent<movement>().Movement(false);
             }
-
-            if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D))
             {
                 GetComponent<movement>().Movement(true);
+            }
+            else
+            {
+                GetComponent<movement>().StopMovement();
             }
 
             if (Input.GetKey(KeyCode.Space))
