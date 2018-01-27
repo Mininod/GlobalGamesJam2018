@@ -65,22 +65,20 @@ public class AI : MonoBehaviour {
             }
         }
 
+        if (curCoolDown < maxCoolDown)
+        {
+            curCoolDown += Time.deltaTime;
+        }
 
-
-
-            switch (gameObject.GetComponent<MyType>().mytype)
+        RaycastHit2D hit;
+        switch (gameObject.GetComponent<MyType>().mytype)
         {
             case MyType.objectTag.Player:
                 break;
             case MyType.objectTag.Warrior:
 
-                if(curCoolDown < maxCoolDown)
-                {
-                    curCoolDown += Time.deltaTime;
-                }
-
                 //RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(transform.position.x + transform.right.x, transform.position.y) * facingMultiplier, 2.0f);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right * facingMultiplier, 2.0f);
+                hit = Physics2D.Raycast(transform.position, transform.right * facingMultiplier, 2.0f);
                 //Debug.DrawLine(transform.position, transform.right);
                 Debug.Log(transform.right);
                 Debug.DrawRay(transform.position, transform.right, Color.blue);
@@ -127,6 +125,30 @@ public class AI : MonoBehaviour {
             case MyType.objectTag.Archer:
                 break;
             case MyType.objectTag.Wizard:
+
+                hit = Physics2D.Raycast(transform.position, transform.right * facingMultiplier, 2.0f);
+                if (hit)
+                {
+                    if (!hit.collider.isTrigger && hit.collider.GetComponent<IsActivePlayer>() == true && hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+                    {
+                        if (maxCoolDown < curCoolDown)
+                        {
+                            print("we Are attack");
+                            inAttackRange = true;
+                            GetComponentInChildren<Attack>().StaffAttack();
+                            curCoolDown = 0;
+                        }
+                    }
+                    else
+                    {
+                        inAttackRange = false;
+                    }
+                }
+                else
+                {
+                    inAttackRange = false;
+                }
+
                 break;
             case MyType.objectTag.Floor:
                 break;

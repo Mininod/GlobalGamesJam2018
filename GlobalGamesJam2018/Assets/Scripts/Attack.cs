@@ -6,6 +6,7 @@ public class Attack : MonoBehaviour {
 
     //private GameObject trigger;
     private BoxCollider2D trigger;
+    public GameObject fireBall;
 	// Use this for initialization
 	void Start () {
 		if(GetComponent<BoxCollider2D>())
@@ -39,9 +40,23 @@ public class Attack : MonoBehaviour {
         }
     }
 
-    void WizardAttack()
+    public void StaffAttack(bool isMoveRight)
     {
-
+        if (gameObject.GetComponentInParent<MyType>())
+        {
+            if (gameObject.GetComponentInParent<MyType>().mytype == MyType.objectTag.Wizard)
+            {
+                GameObject foo = Instantiate(fireBall,new Vector2(gameObject.transform.position.x,gameObject.transform.position.y), Quaternion.identity);
+                if (isMoveRight)
+                {
+                    foo.GetComponent<Rigidbody2D>().velocity = transform.right;
+                }
+                else
+                {
+                    foo.GetComponent<Rigidbody2D>().velocity = -transform.right;
+                }
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other1)
