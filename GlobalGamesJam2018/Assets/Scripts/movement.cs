@@ -24,13 +24,18 @@ public class movement : MonoBehaviour {
 
     internal void Movement(bool direction)
     {
+        float speedMulti = 1;
+        if (!GetComponent<IsActivePlayer>().getIsActivePlayer())
+        {
+            speedMulti = 0.5f;
+        }
         if (direction == false)
         {
-            rb.velocity = new Vector3(-speed, rb.velocity.y);
+            rb.velocity = new Vector3(-speed * speedMulti, rb.velocity.y);
         }
         else if (direction == true)
         {
-            rb.velocity = new Vector3(speed, rb.velocity.y);
+            rb.velocity = new Vector3(speed * speedMulti, rb.velocity.y);
         }
         
     }

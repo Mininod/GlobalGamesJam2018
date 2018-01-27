@@ -158,7 +158,7 @@ Prefab:
     - target: {fileID: 114567105317207146, guid: b9922081940260348b08a0882623992b,
         type: 2}
       propertyPath: speed
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114567105317207146, guid: b9922081940260348b08a0882623992b,
         type: 2}
