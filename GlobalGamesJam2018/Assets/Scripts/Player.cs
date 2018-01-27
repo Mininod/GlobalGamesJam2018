@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
             }
 
             //debug
-            enemyLastHit = GameObject.Find("Warrior"); //Make a way to find the enemy last hit
+            //enemyLastHit = GameObject.Find("NamemeSomething"); //Make a way to find the enemy last hit
             //debug
 
             if (Input.GetKeyDown(KeyCode.F))
@@ -112,6 +112,11 @@ public class Player : MonoBehaviour
     public void takeDamage(int damage)
     {
         hp -= damage;
+    }
+
+    public void SetEnemyLastHit(GameObject input)
+    {
+        enemyLastHit = input;
     }
 
 }
