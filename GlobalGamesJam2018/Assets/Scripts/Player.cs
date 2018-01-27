@@ -104,6 +104,7 @@ public class Player : MonoBehaviour
                         enemyLastHit.AddComponent<Player>();
                         enemyLastHit.GetComponent<Player>().hp = enemyLastHit.GetComponent<AI>().GetHp();
                         enemyLastHit.GetComponent<Player>().hitIndicator = hitIndicator;
+                        hitIndicator.SetActive(false);
                         GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI
                         GetComponent<AI>().SetSoulTimer(soulTimer);
                         enemyLastHit.GetComponent<Player>().soulTransmitDistance = soulTransmitDistance;
