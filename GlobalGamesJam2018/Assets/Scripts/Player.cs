@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
         thiscamera = Camera.main.gameObject;
         thiscamera.GetComponent<FollowPlayer>().setNewPlayer(gameObject);
-
+        GetComponent<AI>().enabled = false;
         GetComponent<IsActivePlayer>().setActivePlayer();
         facingDirection = true;
         if (soulTimer > 0)

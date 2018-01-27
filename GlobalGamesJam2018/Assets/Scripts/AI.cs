@@ -52,8 +52,10 @@ public class AI : MonoBehaviour {
                 {
                     facingMultiplier = -1;
                 }
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, (transform.right*0.04f)*facingMultiplier, 5.0f);
-                //Debug.DrawRay(transform.position, transform.right, Color.blue);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(transform.position.x + transform.right.x, transform.position.y) * facingMultiplier, 2.0f);
+                //Debug.DrawLine(transform.position, transform.right);
+                Debug.Log(transform.right);
+                Debug.DrawRay(transform.position, transform.right, Color.blue);
 
                 if (hit)
                 {
