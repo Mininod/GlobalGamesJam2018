@@ -52,6 +52,24 @@ public class Player : MonoBehaviour
                 GetComponent<movement>().Jump();
             }
 
+            if (Input.GetMouseButtonDown(0))
+            {
+                switch (gameObject.GetComponent<MyType>().mytype)
+                {
+                    case MyType.objectTag.Warrior:
+                        GetComponent<Attack>().SwordAttack();
+                        break;
+                    case MyType.objectTag.Archer:
+                        
+                        break;
+                    case MyType.objectTag.Wizard:
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
             //debug
             enemyLastHit = GameObject.Find("Warrior"); //Make a way to find the enemy last hit
             //debug
