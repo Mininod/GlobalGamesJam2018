@@ -158,12 +158,17 @@ Prefab:
     - target: {fileID: 114567105317207146, guid: b9922081940260348b08a0882623992b,
         type: 2}
       propertyPath: speed
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114567105317207146, guid: b9922081940260348b08a0882623992b,
         type: 2}
       propertyPath: jumpSpeed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61046375563770446, guid: b9922081940260348b08a0882623992b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 212953742025311400, guid: b9922081940260348b08a0882623992b, type: 2}

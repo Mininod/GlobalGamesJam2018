@@ -79,7 +79,8 @@ public class AI : MonoBehaviour {
                     curCoolDown += Time.deltaTime;
                 }
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(transform.position.x + transform.right.x, transform.position.y) * facingMultiplier, 2.0f);
+                //RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(transform.position.x + transform.right.x, transform.position.y) * facingMultiplier, 2.0f);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right * facingMultiplier, 2.0f);
                 //Debug.DrawLine(transform.position, transform.right);
                 Debug.Log(transform.right);
                 Debug.DrawRay(transform.position, transform.right, Color.blue);
