@@ -182,10 +182,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1179207307362144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89510d20e13b6241a2a23f6c939bc85, type: 3}
+  m_Script: {fileID: 11500000, guid: e9f15b069edca0948852425e61a1e278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMovement: 25
+  maxMovement: 5
 --- !u!114 &114567105317207146
 MonoBehaviour:
   m_ObjectHideFlags: 1
