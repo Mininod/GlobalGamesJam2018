@@ -33,7 +33,6 @@ public class Attack : MonoBehaviour {
             if (gameObject.GetComponentInParent<MyType>().mytype==MyType.objectTag.Warrior)
             {
                 //play animation 
-                print("should be attacking");
                 // activate hitbox
                 trigger.enabled = true;
             }
@@ -50,13 +49,16 @@ public class Attack : MonoBehaviour {
         
             if (other.GetComponent<IsActivePlayer>() == true)
             {
-                if (GetComponent<IsActivePlayer>().getIsActivePlayer() != true)
+                if (GetComponent<IsActivePlayer>() == true)
                 {
-                    if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+                    if (GetComponent<IsActivePlayer>().getIsActivePlayer() == false)
                     {
-                        other.GetComponent<Player>().takeDamage(5); //magic number scrub //
+                        if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+                        {
+                            other.GetComponent<Player>().takeDamage(5); //magic number scrub //
 
-                        trigger.enabled = false;
+                            trigger.enabled = false;
+                         }
                     }
                 }
             }
@@ -71,9 +73,10 @@ public class Attack : MonoBehaviour {
                     {
                         if (other.GetComponent<AI>())
                         {
+                            Debug.Log("AHRHAHRHAHR");
                             other.GetComponent<AI>().takeDamage(5); // maggic ass damage
                             trigger.enabled = false;
-                            GetComponent<Player>().SetEnemyLastHit(other.gameObject);
+                            GetComponentInParent<Player>().SetEnemyLastHit(other.gameObject);
                         }
                     }
                 }

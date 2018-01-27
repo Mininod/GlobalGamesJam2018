@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
                 switch (gameObject.GetComponent<MyType>().mytype)
                 {
                     case MyType.objectTag.Warrior:
-                        GetComponent<Attack>().SwordAttack();
+                        GetComponentInChildren<Attack>().SwordAttack();
                         break;
                     case MyType.objectTag.Archer:
                         break;
