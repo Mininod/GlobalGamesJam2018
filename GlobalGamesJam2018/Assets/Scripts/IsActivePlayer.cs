@@ -9,7 +9,6 @@ public class IsActivePlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        ActivePlayer = false;
 	}
 	
 	// Update is called once per frame

@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GetComponent<IsActivePlayer>().setActivePlayer();
+
         facingDirection = true;
         if (soulTimer > 0)
         {
@@ -93,13 +93,16 @@ public class Player : MonoBehaviour
                 if (enemyLastHit.transform.position.x >= transform.position.x - soulTransmitDistance && enemyLastHit.transform.position.x <= transform.position.x + soulTransmitDistance)
                 {
                     Debug.Log("Good to transmit bb");
+                    Debug.Log(enemyLastHit.name);
                     enemyLastHit.AddComponent<Player>();
                     enemyLastHit.GetComponent<Player>().hp = enemyLastHit.GetComponent<AI>().GetHp();
                     GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI
                     GetComponent<AI>().SetSoulTimer(soulTimer);
+                    enemyLastHit.GetComponent<Player>().soulTransmitDistance = soulTransmitDistance;
                     enemyLastHit.GetComponent<Player>().soulTimer = enemyLastHit.GetComponent<AI>().GetSoulTimer();
                     enemyLastHit.GetComponent<AI>().enabled = false; //Disables AI of target
                     GetComponent<IsActivePlayer>().setActivePlayer();
+                    enemyLastHit.GetComponent<IsActivePlayer>().setActivePlayer();
                     Destroy(GetComponent<Player>()); //Destory This Script 
                 }
             }

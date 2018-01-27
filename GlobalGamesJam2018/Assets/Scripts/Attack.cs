@@ -62,7 +62,6 @@ public class Attack : MonoBehaviour {
 
         if (GetComponentInParent<IsActivePlayer>() == true)     
         {
-            Debug.Log("THING");
             if (GetComponentInParent<IsActivePlayer>().getIsActivePlayer() == true)
             {
                 if (other.GetComponent<MyType>())
