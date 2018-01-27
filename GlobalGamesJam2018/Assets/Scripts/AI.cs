@@ -52,7 +52,7 @@ public class AI : MonoBehaviour {
                 {
                     facingMultiplier = -1;
                 }
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right*facingMultiplier, 5.0f);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, (transform.right*0.04f)*facingMultiplier, 5.0f);
                 //Debug.DrawRay(transform.position, transform.right, Color.blue);
 
                 if (hit)
@@ -66,6 +66,10 @@ public class AI : MonoBehaviour {
                             inAttackRange = true;
                             GetComponentInChildren<Attack>().SwordAttack();
                         }
+                    }
+                    else
+                    {
+                        inAttackRange = false;
                     }
                 }
 
@@ -90,6 +94,7 @@ public class AI : MonoBehaviour {
                             //GetComponent<Transform>().localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                             moveRight = !moveRight;
                         }
+
                     }
                 }
                 GetComponent<Transform>().localScale = new Vector3(facingMultiplier, transform.localScale.y, transform.localScale.z);
