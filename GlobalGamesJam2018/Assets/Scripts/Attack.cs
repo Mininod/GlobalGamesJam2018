@@ -33,6 +33,7 @@ public class Attack : MonoBehaviour {
             if (gameObject.GetComponentInParent<MyType>().mytype==MyType.objectTag.Warrior)
             {
                 //play animation 
+
                 // activate hitbox
                 trigger.enabled = true;
             }
@@ -46,11 +47,26 @@ public class Attack : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.GetComponent<MyType>())
+        if (other.GetComponent<MyType>())
         {
-            if(other.GetComponent<MyType>().mytype == MyType.objectTag.Player)
-            {
+            //if(other.GetComponent<MyType>().mytype == MyType.objectTag.Player)
+            //{
 
+            //}
+            if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+            {
+                other.GetComponent<Player>();
+            }
+        }
+
+        if (GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+        {
+            if (other.GetComponent<MyType>())
+            {
+                if (other.GetComponent<MyType>().mytype != MyType.objectTag.Floor)
+                {
+
+                }
             }
         }
     }
