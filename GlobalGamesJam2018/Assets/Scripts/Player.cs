@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,12 +10,16 @@ public class Player : MonoBehaviour
     // transfer code 
     public float hp;
     public float soulTimer;
+    private float maxSoulTimer;
     public float soulTransmitDistance;
     public GameObject hitIndicator;
     private bool soulTimerActive;
     private bool facingDirection;
     private GameObject enemyLastHit;
     private GameObject thiscamera;
+
+    //UI
+    private Slider SoulTimerUI;
     // Use this for initialization
     void Start()
     {
@@ -27,7 +32,8 @@ public class Player : MonoBehaviour
         {
             soulTimerActive = true; //DELETE ME ONCE YOU NO LONGER NEED ME :,(
         }
-
+        maxSoulTimer = soulTimer;
+        SoulTimerUI = GameObject.Find("SoulSlider").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -40,6 +46,10 @@ public class Player : MonoBehaviour
             {
                 soulTimerActive = false;
             }
+
+            //UI update 
+            print(maxSoulTimer);
+            SoulTimerUI.value = soulTimer /maxSoulTimer;
 
             if (Input.GetKey(KeyCode.A))
             {
