@@ -31,7 +31,6 @@ public class Player : MonoBehaviour {
             {
                 GetComponent<movement>().Jump();
             }
-            
-           
+               
     }
 }
