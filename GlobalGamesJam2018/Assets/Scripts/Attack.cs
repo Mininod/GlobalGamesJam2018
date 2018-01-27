@@ -48,9 +48,9 @@ public class Attack : MonoBehaviour {
     {
             if (other.GetComponent<IsActivePlayer>() == true)
             {
-                if (GetComponent<IsActivePlayer>() == true)
+                if (GetComponentInParent<IsActivePlayer>() == true)
                 {
-                    if (GetComponent<IsActivePlayer>().getIsActivePlayer() == false)
+                    if (GetComponentInParent<IsActivePlayer>().getIsActivePlayer() == false)
                     {
                         if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                         {
@@ -60,9 +60,10 @@ public class Attack : MonoBehaviour {
                 }
             }
 
-        if (GetComponent<IsActivePlayer>() == true)
+        if (GetComponentInParent<IsActivePlayer>() == true)     
         {
-            if (GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+            Debug.Log("THING");
+            if (GetComponentInParent<IsActivePlayer>().getIsActivePlayer() == true)
             {
                 if (other.GetComponent<MyType>())
                 {
@@ -72,7 +73,6 @@ public class Attack : MonoBehaviour {
                         {
                             Debug.Log("GET");
                             other.GetComponent<AI>().takeDamage(5); // maggic ass damage
-                            trigger.enabled = false;
                             GetComponentInParent<Player>().SetEnemyLastHit(other.gameObject);
                         }
                     }

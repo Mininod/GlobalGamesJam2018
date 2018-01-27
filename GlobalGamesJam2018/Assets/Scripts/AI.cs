@@ -18,7 +18,7 @@ public class AI : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        soulTimer = 10; 
+        soulTimer = 1000; 
         hp = 10;
         Debug.Log("SOUL TIME AND HP SET TO 10 IN START FOR DEBUGGING");
         moveRight = true;
