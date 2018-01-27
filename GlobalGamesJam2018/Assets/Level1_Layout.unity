@@ -151,6 +151,10 @@ Prefab:
       propertyPath: m_Name
       value: Warrior (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1179207307362144, guid: b9922081940260348b08a0882623992b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9922081940260348b08a0882623992b, type: 2}
   m_IsPrefabParent: 0
@@ -292,6 +296,48 @@ GameObject:
   m_PrefabParentObject: {fileID: 1802980964525544, guid: 4c249c95b3a96d8459950cd2d3df8a29,
     type: 2}
   m_PrefabInternal: {fileID: 1116840666}
+--- !u!1001 &1051140788
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4813940601353720, guid: 4098b9f26550c274698a49f60b68c26e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813940601353720, guid: 4098b9f26550c274698a49f60b68c26e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.384
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813940601353720, guid: 4098b9f26550c274698a49f60b68c26e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813940601353720, guid: 4098b9f26550c274698a49f60b68c26e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813940601353720, guid: 4098b9f26550c274698a49f60b68c26e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813940601353720, guid: 4098b9f26550c274698a49f60b68c26e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813940601353720, guid: 4098b9f26550c274698a49f60b68c26e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813940601353720, guid: 4098b9f26550c274698a49f60b68c26e, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4098b9f26550c274698a49f60b68c26e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1116840666
 Prefab:
   m_ObjectHideFlags: 0
@@ -487,6 +533,7 @@ GameObject:
   - component: {fileID: 1643079025}
   - component: {fileID: 1643079024}
   - component: {fileID: 1643079023}
+  - component: {fileID: 1643079026}
   m_Layer: 0
   m_Name: TileSpirteSheet_1
   m_TagString: Untagged
@@ -574,6 +621,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1643079026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643079022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5482f70f601cd874e8427563f249ad6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mytype: 4
 --- !u!1001 &1800362088
 Prefab:
   m_ObjectHideFlags: 0
@@ -680,6 +739,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224041160377588318, guid: 8a8de6666c006ba489baaffc96dce57b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -37.09668
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a8de6666c006ba489baaffc96dce57b, type: 2}
