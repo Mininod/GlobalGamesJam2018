@@ -152,6 +152,17 @@ public class AI : MonoBehaviour {
     {
         return hp;
     }
+
+    public void SetSoulTimer(float soulTime)
+    {
+        soulTimer = soulTime;
+    }
+
+    public void SetHp(float health)
+    {
+        hp = health;
+    }
+
     public void takeDamage(int damage)
     {
         hp -= damage;
