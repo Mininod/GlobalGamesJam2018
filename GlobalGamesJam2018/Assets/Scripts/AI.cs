@@ -38,22 +38,25 @@ public class AI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (player.GetComponent<IsActivePlayer>().getIsActivePlayer() == true && chase == true)
+        if (player != null)
         {
-            Debug.Log("Run555");
-            chase = true;
-
-            if (gameObject.transform.position.x < player.transform.position.x)
+            if (player.GetComponent<IsActivePlayer>().getIsActivePlayer() == true && chase == true)
             {
-                facingMultiplier = 1;
-                gameObject.GetComponent<movement>().Movement(true);
+                Debug.Log("Run555");
+                chase = true;
 
-            }
-            if (gameObject.transform.position.x > player.transform.position.x)
-            {
-                facingMultiplier = -1;
-                gameObject.GetComponent<movement>().Movement(false);
+                if (gameObject.transform.position.x < player.transform.position.x)
+                {
+                    facingMultiplier = 1;
+                    gameObject.GetComponent<movement>().Movement(true);
 
+                }
+                if (gameObject.transform.position.x > player.transform.position.x)
+                {
+                    facingMultiplier = -1;
+                    gameObject.GetComponent<movement>().Movement(false);
+
+                }
             }
         }
 
@@ -142,7 +145,7 @@ public class AI : MonoBehaviour {
                 player = other.gameObject;
             }
 
-            if (player.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+            if (player != null && player.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
             {
                 chase = true;
 
