@@ -43,6 +43,7 @@ public class AI : MonoBehaviour {
                         if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Player)
                         {
                             print("we Are attack");
+                            GetComponent<Attack>().SwordAttack();
                         }
                     }
                 }

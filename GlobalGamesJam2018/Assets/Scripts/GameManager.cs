@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 	void Update ()
     {
         currentLevelTimer -= Time.deltaTime;
-        print(currentLevelTimer);
+        //print(currentLevelTimer);
         if(currentLevelTimer<0)
         {
             // game over? / lose a life

@@ -26,7 +26,7 @@ public class Attack : MonoBehaviour {
 
     }
 
-    void SwordAttack()
+    public void SwordAttack()
     {
         if(gameObject.GetComponentInParent<MyType>())
         {
@@ -53,9 +53,13 @@ public class Attack : MonoBehaviour {
             //{
 
             //}
-            if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+            if (other.GetComponent<IsActivePlayer>() == true)
             {
-                other.GetComponent<Player>();
+                if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
+                {
+                    other.GetComponent<Player>().takeDamage(5); //magic number scrub //
+                    Debug.DrawRay(transform.position, transform.right, Color.red);
+                }
             }
         }
 
@@ -65,7 +69,11 @@ public class Attack : MonoBehaviour {
             {
                 if (other.GetComponent<MyType>().mytype != MyType.objectTag.Floor)
                 {
-
+                    if(other.GetComponent<AI>())
+                    {
+                        other.GetComponent<AI>().takeDamage(5); // maggic ass damage
+                        Debug.DrawRay(transform.position, transform.right, Color.red);
+                    }
                 }
             }
         }

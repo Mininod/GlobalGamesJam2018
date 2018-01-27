@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
         {
             soulTimerActive = true; //DELETE ME ONCE YOU NO LONGER NEED ME :,(
         }
+        GetComponent<IsActivePlayer>().setActivePlayer(true);
 
 	}
 	
