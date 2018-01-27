@@ -50,7 +50,7 @@ public class movement : MonoBehaviour {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, (GetComponent<SpriteRenderer>().bounds.size.y / 2)+0.1f); //Change "10" to change range;
         Debug.DrawRay(transform.position, -transform.up, Color.red);
 
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.GetComponent<MyType>())
         {
             if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Floor)
             {
