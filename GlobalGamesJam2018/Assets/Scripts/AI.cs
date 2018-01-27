@@ -45,14 +45,14 @@ public class AI : MonoBehaviour {
 
             if (gameObject.transform.position.x < player.transform.position.x)
             {
-                moveRight = true;
-                gameObject.GetComponent<movement>().Movement(moveRight);
+                facingMultiplier = 1;
+                gameObject.GetComponent<movement>().Movement(true);
 
             }
             if (gameObject.transform.position.x > player.transform.position.x)
             {
-                moveRight = false;
-                gameObject.GetComponent<movement>().Movement(moveRight);
+                facingMultiplier = -1;
+                gameObject.GetComponent<movement>().Movement(false);
 
             }
         }
@@ -66,14 +66,6 @@ public class AI : MonoBehaviour {
                 break;
             case MyType.objectTag.Warrior:
 
-                if (moveRight == true)
-                {
-                    facingMultiplier=1;
-                }
-                else
-                {
-                    facingMultiplier = -1;
-                }
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(transform.position.x + transform.right.x, transform.position.y) * facingMultiplier, 2.0f);
                 //Debug.DrawLine(transform.position, transform.right);
                 Debug.Log(transform.right);
@@ -92,6 +84,7 @@ public class AI : MonoBehaviour {
                         inAttackRange = false;
                     }
                 }
+                else
                 {
                     inAttackRange = false;
                 }
@@ -163,17 +156,6 @@ public class AI : MonoBehaviour {
             {
                 chase = true;
 
-                //if(gameObject.transform.position.x < player.transform.position.x)
-                //{
-                //    moveRight = true;
-                    
-                //}
-                //if (gameObject.transform.position.x > player.transform.position.x)
-                //{
-                //    moveRight = false;
-                    
-                //}
-                //if player is jumping jump;
                 if (other.GetComponent<movement>())
                 {
                     if (other.GetComponent<movement>().OnFloor() == false)
