@@ -26,6 +26,13 @@ public class AI : MonoBehaviour {
         inAttackRange = false;
         facingMultiplier = 1;
     }
+    void OnEnable()
+    {
+        moveRight = true;
+        currentMovement = 0;
+        inAttackRange = false;
+        facingMultiplier = 1;
+    }
 	
 	// Update is called once per frame
 	void Update ()
