@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
     public float soulTimer;
     public float soulTransmitDistance;
     private bool soulTimerActive;
+    private bool facingDirection;
     private GameObject enemyLastHit;
     // Use this for initialization
     void Start()
     {
         GetComponent<IsActivePlayer>().setActivePlayer();
+        facingDirection = true;
         if (soulTimer > 0)
         {
             soulTimerActive = true; //DELETE ME ONCE YOU NO LONGER NEED ME :,(
@@ -36,10 +38,12 @@ public class Player : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A))
             {
+                facingDirection = false;
                 GetComponent<movement>().Movement(false);
             }
             else if (Input.GetKey(KeyCode.D))
             {
+                facingDirection = true;
                 GetComponent<movement>().Movement(true);
             }
             else
@@ -67,6 +71,15 @@ public class Player : MonoBehaviour
                     default:
                         break;
                 }
+            }
+
+            if(facingDirection==true)
+            {
+                GetComponent<Transform>().localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            }
+            else
+            {
+                GetComponent<Transform>().localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
             }
 
             //debug
