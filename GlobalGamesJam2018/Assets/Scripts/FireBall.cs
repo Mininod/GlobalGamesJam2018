@@ -11,7 +11,7 @@ public class FireBall : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        damage = 5;
+        damage = 20;
 	}
 	
 	// Update is called once per frame

@@ -68,7 +68,7 @@ public class Attack : MonoBehaviour {
                     {
                         if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                         {
-                            other.GetComponent<Player>().takeDamage(5); //magic number scrub //
+                            other.GetComponent<Player>().takeDamage(20); //magic number scrub //
                             Debug.Log("Hit");
                         }
                     }

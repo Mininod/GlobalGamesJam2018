@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4492257609103602
 Transform:
   m_ObjectHideFlags: 1
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastHit: {fileID: 0}
+  adjustment: {x: 0, y: 0}
 --- !u!212 &212803678384213484
 SpriteRenderer:
   m_ObjectHideFlags: 1
