@@ -46,8 +46,11 @@ public class Attack : MonoBehaviour {
         {
             if (gameObject.GetComponentInParent<MyType>().mytype == MyType.objectTag.Wizard)
             {
+                Debug.Log("Fireball is go");
+                //Instantiate(fireBall);
                 GameObject foo = Instantiate(fireBall,new Vector2(gameObject.transform.position.x,gameObject.transform.position.y), Quaternion.identity);
                 foo.GetComponent<Rigidbody2D>().velocity = transform.right * rightamount * 10;
+                foo.GetComponent<FireBall>().setSource(transform.parent.gameObject);
 
             }
         }

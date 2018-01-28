@@ -8,7 +8,6 @@ public class AI : MonoBehaviour {
     private bool moveRight;
     private bool canJump;
     public bool chase;
-    public bool inAttackRange;
     private float soulTimer;
     private float hp;
     private int facingMultiplier;
@@ -28,7 +27,6 @@ public class AI : MonoBehaviour {
         Debug.Log("SOUL TIME AND HP SET TO 10 IN START FOR DEBUGGING");
         moveRight = true;
         currentMovement = 0;
-        inAttackRange = false;
         facingMultiplier = 1;
     }
     void OnEnable()
@@ -36,7 +34,6 @@ public class AI : MonoBehaviour {
         maxCoolDown = 2;
         moveRight = true;
         currentMovement = 0;
-        inAttackRange = false;
         facingMultiplier = 1;
     }
 	
@@ -90,21 +87,12 @@ public class AI : MonoBehaviour {
                         if (maxCoolDown < curCoolDown)
                         {
                             print("we Are attack");
-                            inAttackRange = true;
                             GetComponentInChildren<Attack>().SwordAttack();
                             curCoolDown = 0;
                         }
                     }
-                    else
-                    {
-                        inAttackRange = false;
-                    }
-                }
-                else
-                {
-                    inAttackRange = false;
-                }
-                if (chase == false)
+
+                    if (chase == false)
                     {
                         if (currentMovement < maxMovement)
                         {
@@ -119,35 +107,25 @@ public class AI : MonoBehaviour {
                             moveRight = !moveRight;
                         }
                     }
-
+                }
                 break;
             case MyType.objectTag.Archer:
                 break;
             case MyType.objectTag.Wizard:
 
-                hit = Physics2D.Raycast(transform.position, transform.right * facingMultiplier, 5.0f);
+                hit = Physics2D.Raycast(transform.position, transform.right * facingMultiplier, 10.0f);
                 if (hit)
                 {
                     if (!hit.collider.isTrigger && hit.collider.GetComponent<IsActivePlayer>() == true && hit.collider.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                     {
                         if (maxCoolDown < curCoolDown)
                         {
-                            print("we Are attack");
-                            inAttackRange = true;
+                            print("we Are attack Wizaard");
                             GetComponentInChildren<Attack>().StaffAttack(facingMultiplier);
                             curCoolDown = 0;
                         }
                     }
-                    else
-                    {
-                        inAttackRange = false;
-                    }
                 }
-                else
-                {
-                    inAttackRange = false;
-                }
-
                 break;
             case MyType.objectTag.Floor:
                 break;
@@ -204,7 +182,6 @@ public class AI : MonoBehaviour {
             if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
             {
                 chase = false;
-                inAttackRange = false;
             }
         }
     }
