@@ -18,17 +18,18 @@ public class AI : MonoBehaviour {
     private float maxCoolDown;
     public float curCoolDown;
 
-    public Slider healthbar;
+    private GameObject healthbar;
 
 
     // Use this for initialization
     void Start ()
     {
+
         maxCoolDown = 2;
         curCoolDown = 0;
         soulTimer = 1000; 
         hp = 100;
-        healthbar.maxValue = hp;
+        healthbar = transform.GetChild(1).gameObject;
         Debug.Log("SOUL TIME AND HP SET TO 10 IN START FOR DEBUGGING");
         moveRight = true;
         currentMovement = 0;
@@ -45,7 +46,11 @@ public class AI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        healthbar.value = hp;
+        //Rect foo = new Rect(10, 10, 10, 10);
+        float vectorhpshit = hp / 100;
+        Debug.Log(vectorhpshit);
+        healthbar.transform.localScale=  new Vector2(vectorhpshit, healthbar.transform.localScale.y);
+        healthbar.transform.localPosition = new Vector2(-.5f - vectorhpshit, healthbar.transform.localPosition.y);
         if (player != null)
         {
             if (player.GetComponent<IsActivePlayer>().getIsActivePlayer() == true && chase == true)
