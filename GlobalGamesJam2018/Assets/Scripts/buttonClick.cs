@@ -29,4 +29,9 @@ public class buttonClick : MonoBehaviour {
     {
         SceneManager.LoadScene(4);
     }
+
+    public void closeGame()
+    {
+        Application.Quit();
+    }
 }
