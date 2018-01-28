@@ -9,8 +9,14 @@ public class Attack : MonoBehaviour {
     public GameObject fireBall;
     private int damage = 20;
 	// Use this for initialization
-	void Start () {
-		if(GetComponent<BoxCollider2D>())
+	void Start() {
+        if (GetComponent<Animator>() == true)
+        {
+            GetComponentInParent<Animator>().SetBool("isAttacking", false);
+            GetComponentInParent<Animator>().GetComponent<Animation>().wrapMode = WrapMode.Once;
+        }
+        //GetComponent<Animation>().wrapMode = WrapMode.Once;
+        if (GetComponent<BoxCollider2D>())
         {
             trigger = gameObject.GetComponent<BoxCollider2D>();
             trigger.enabled = false;
@@ -18,10 +24,16 @@ public class Attack : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void Update()
     {
         trigger.enabled = false;
-	}
+
+        if (gameObject.GetComponentInParent<MyType>().mytype == MyType.objectTag.Warrior && GetComponentInParent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("warriorAnimation"))
+        {
+            Debug.Log("boiiii");
+            GetComponentInParent<Animator>().SetBool("isAttacking", false);
+        }
+    }
  
     void ArrowAttack()
     {
@@ -36,6 +48,7 @@ public class Attack : MonoBehaviour {
             {
                 //play animation 
                 // activate hitbox
+                GetComponentInParent<Animator>().SetBool("isAttacking", true);
                 trigger.enabled = true;
             }
         }
