@@ -60,9 +60,9 @@ public class movement : MonoBehaviour {
         {
             hit = Physics2D.Raycast(new Vector2(transform.position.x -(GetComponent<SpriteRenderer>().bounds.size.x / 2), transform.position.y) , -transform.up, (GetComponent<SpriteRenderer>().bounds.size.y / 2) + 0.1f);
 
-            if (hit.collider != null && hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Floor)
+            if (hit.collider != null && hit.collider.GetComponent<MyType>())
             {
-                if (hit.collider.GetComponent<MyType>())
+                if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Floor)
                 {
                     rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
                 }

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     private bool attackOnCD;
     private bool pauseSoulTimer;
     private GameObject healthbar;
+    public AudioClip soulTransfer;
     //UI
     private Slider SoulTimerUI;
     // Use this for initialization
@@ -156,6 +157,9 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Good to transmit bb");
                         Debug.Log(enemyLastHit.name);
+                        enemyLastHit.AddComponent<AudioSource>();
+                        enemyLastHit.GetComponent<AudioSource>().clip = soulTransfer;
+                        enemyLastHit.GetComponent<AudioSource>().Play();
                         enemyLastHit.AddComponent<Player>();
                         enemyLastHit.GetComponent<Player>().hp = enemyLastHit.GetComponent<AI>().GetHp();
                         enemyLastHit.GetComponent<Player>().hitIndicator = hitIndicator;
