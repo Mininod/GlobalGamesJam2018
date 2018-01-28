@@ -1767,6 +1767,7 @@ GameObject:
   - component: {fileID: 822326087}
   - component: {fileID: 822326089}
   - component: {fileID: 822326088}
+  - component: {fileID: 822326090}
   m_Layer: 0
   m_Name: TileSpirteSheet_0 (3)
   m_TagString: Untagged
@@ -1854,6 +1855,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &822326090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822326086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5482f70f601cd874e8427563f249ad6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mytype: 4
 --- !u!1 &824521362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2967,6 +2980,7 @@ GameObject:
   - component: {fileID: 1235867602}
   - component: {fileID: 1235867601}
   - component: {fileID: 1235867603}
+  - component: {fileID: 1235867604}
   m_Layer: 0
   m_Name: TileSpirteSheet_0
   m_TagString: Untagged
@@ -3054,6 +3068,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 6.57037}
   m_EdgeRadius: 0
+--- !u!114 &1235867604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1235867600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5482f70f601cd874e8427563f249ad6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mytype: 4
 --- !u!1 &1296990390
 GameObject:
   m_ObjectHideFlags: 0
