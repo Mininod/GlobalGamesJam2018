@@ -63,6 +63,7 @@ public class movement : MonoBehaviour {
 
     internal bool OnFloor()
     {
+        Debug.Log("onFloor");
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, (GetComponent<SpriteRenderer>().bounds.size.y / 2) + 0.1f); //Change "10" to change range;
 
         if (hit.collider != null && hit.collider.GetComponent<MyType>())
@@ -75,5 +76,10 @@ public class movement : MonoBehaviour {
       
         return false;
         
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        other.collider;
     }
 }
