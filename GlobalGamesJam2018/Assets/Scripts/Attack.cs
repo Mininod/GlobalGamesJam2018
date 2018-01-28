@@ -8,8 +8,10 @@ public class Attack : MonoBehaviour {
     private BoxCollider2D trigger;
     public GameObject fireBall;
     private int damage = 20;
+    public GameObject soundManager;
 	// Use this for initialization
 	void Start() {
+        soundManager = GameObject.Find("AudioController");
         if (GetComponent<Animator>() == true)
         {
             GetComponentInParent<Animator>().SetBool("isAttacking", false);
@@ -48,6 +50,7 @@ public class Attack : MonoBehaviour {
             {
                 //play animation 
                 // activate hitbox
+                soundManager.GetComponent<AudioControllerScript>().PlayAudioClip(2);
                 GetComponentInParent<Animator>().SetBool("isAttacking", true);
                 trigger.enabled = true;
             }
@@ -62,6 +65,7 @@ public class Attack : MonoBehaviour {
             {
                 Debug.Log("Fireball is go");
                 //Instantiate(fireBall);
+                soundManager.GetComponent<AudioControllerScript>().PlayAudioClip(0);
                 GameObject foo = Instantiate(fireBall,new Vector2(gameObject.transform.position.x,gameObject.transform.position.y), Quaternion.identity);
                 foo.GetComponent<Transform>().localScale = new Vector3(rightamount, transform.localScale.y, transform.localScale.z);
                 foo.GetComponent<Rigidbody2D>().velocity = transform.right * rightamount * 10;

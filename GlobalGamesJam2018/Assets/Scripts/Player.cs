@@ -22,12 +22,13 @@ public class Player : MonoBehaviour
     private bool attackOnCD;
     private bool pauseSoulTimer;
     private GameObject healthbar;
-    public AudioClip soulTransfer;
+    private GameObject audioManager;
     //UI
     private Slider SoulTimerUI;
     // Use this for initialization
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("AudioController");
         healthbar = transform.GetChild(1).gameObject;
         GetComponent<SpriteRenderer>().color = new Color32(216, 144, 144, 255);
         thiscamera = Camera.main.gameObject;
@@ -157,12 +158,11 @@ public class Player : MonoBehaviour
                     {
                         Debug.Log("Good to transmit bb");
                         Debug.Log(enemyLastHit.name);
-                        enemyLastHit.AddComponent<AudioSource>();
-                        enemyLastHit.GetComponent<AudioSource>().clip = soulTransfer;
-                        enemyLastHit.GetComponent<AudioSource>().Play();
                         enemyLastHit.AddComponent<Player>();
                         enemyLastHit.GetComponent<Player>().hp = enemyLastHit.GetComponent<AI>().GetHp();
                         enemyLastHit.GetComponent<Player>().hitIndicator = hitIndicator;
+                        audioManager.GetComponent<AudioControllerScript>().PlayAudioClip(1);
+                        enemyLastHit.GetComponent<Player>().audioManager = audioManager;
                         GetComponent<SpriteRenderer>().color = new Color32(255,255, 255, 255);
                         hitIndicator.SetActive(false);
                         GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI

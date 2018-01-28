@@ -529,6 +529,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 570173723}
+--- !u!1 &681434962 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1275524563146412, guid: bbd3e7a64983d154587cf5bad29a4587,
+    type: 2}
+  m_PrefabInternal: {fileID: 832836394}
+--- !u!1001 &832836394
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4134231404596414, guid: bbd3e7a64983d154587cf5bad29a4587, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.1210325
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134231404596414, guid: bbd3e7a64983d154587cf5bad29a4587, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.3295053
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134231404596414, guid: bbd3e7a64983d154587cf5bad29a4587, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134231404596414, guid: bbd3e7a64983d154587cf5bad29a4587, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134231404596414, guid: bbd3e7a64983d154587cf5bad29a4587, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134231404596414, guid: bbd3e7a64983d154587cf5bad29a4587, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134231404596414, guid: bbd3e7a64983d154587cf5bad29a4587, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134231404596414, guid: bbd3e7a64983d154587cf5bad29a4587, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: bbd3e7a64983d154587cf5bad29a4587, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1050530061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54b5126808372e47a6ca382be01b815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioThing: {fileID: 681434962}
 --- !u!4 &1976541607
 Transform:
   m_ObjectHideFlags: 0
