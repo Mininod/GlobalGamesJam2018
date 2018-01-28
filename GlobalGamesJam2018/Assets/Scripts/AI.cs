@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AI : MonoBehaviour {
+
     public float maxMovement;
     private float currentMovement;
     private bool moveRight;
     private bool canJump;
     public bool chase;
-    private float soulTimer;
+    public float soulTimer;
     public float hp;
     private int facingMultiplier;
     private GameObject player;
 
     private float maxCoolDown;
     public float curCoolDown;
+
+    public Slider healthbar;
 
 
     // Use this for initialization
@@ -24,6 +28,7 @@ public class AI : MonoBehaviour {
         curCoolDown = 0;
         soulTimer = 1000; 
         hp = 100;
+        healthbar.maxValue = hp;
         Debug.Log("SOUL TIME AND HP SET TO 10 IN START FOR DEBUGGING");
         moveRight = true;
         currentMovement = 0;
@@ -40,6 +45,7 @@ public class AI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        healthbar.value = hp;
         if (player != null)
         {
             if (player.GetComponent<IsActivePlayer>().getIsActivePlayer() == true && chase == true)

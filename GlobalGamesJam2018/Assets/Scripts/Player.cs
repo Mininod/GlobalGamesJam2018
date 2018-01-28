@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GetComponent<SpriteRenderer>().color = new Color32(109, 0, 0, 255);
+        GetComponent<SpriteRenderer>().color = new Color32(216, 144, 144, 255);
         thiscamera = Camera.main.gameObject;
         thiscamera.GetComponent<FollowPlayer>().setNewPlayer(gameObject);
         GetComponent<AI>().enabled = false;
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
                         GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI
                         GetComponent<AI>().SetSoulTimer(soulTimer);
                         enemyLastHit.GetComponent<Player>().soulTransmitDistance = soulTransmitDistance;
-                        enemyLastHit.GetComponent<Player>().soulTimer = enemyLastHit.GetComponent<AI>().GetSoulTimer();
+                        enemyLastHit.GetComponent<Player>().soulTimer = 20 + (enemyLastHit.GetComponent<AI>().GetSoulTimer() / enemyLastHit.GetComponent<Player>().hp);
                         enemyLastHit.GetComponent<AI>().enabled = false; //Disables AI of target
                         GetComponent<IsActivePlayer>().setActivePlayer();
                         enemyLastHit.GetComponent<Player>().enemyLastHit = null;
