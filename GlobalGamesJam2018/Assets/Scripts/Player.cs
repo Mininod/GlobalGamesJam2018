@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if (enemyLastHit != null)
+                if (enemyLastHit != null && enemyLastHit.activeInHierarchy)
                 {
                     if (enemyLastHit.transform.position.x >= transform.position.x - soulTransmitDistance && enemyLastHit.transform.position.x <= transform.position.x + soulTransmitDistance)
                     {
@@ -159,7 +159,7 @@ public class Player : MonoBehaviour
                         GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI
                         GetComponent<AI>().SetSoulTimer(soulTimer);
                         enemyLastHit.GetComponent<Player>().soulTransmitDistance = soulTransmitDistance;
-                        enemyLastHit.GetComponent<Player>().soulTimer = 20 + (enemyLastHit.GetComponent<AI>().GetSoulTimer() / enemyLastHit.GetComponent<Player>().hp);
+                        enemyLastHit.GetComponent<Player>().soulTimer = enemyLastHit.GetComponent<AI>().GetSoulTimer() + ((enemyLastHit.GetComponent<AI>().GetSoulTimer() / (enemyLastHit.GetComponent<Player>().hp))*20);
                         enemyLastHit.GetComponent<AI>().enabled = false; //Disables AI of target
                         GetComponent<IsActivePlayer>().setActivePlayer();
                         enemyLastHit.GetComponent<Player>().enemyLastHit = null;
