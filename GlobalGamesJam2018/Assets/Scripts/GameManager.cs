@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
-    public float levelTimer;
     private float currentLevelTimer;
 
     private Text levelTimerText;
@@ -13,21 +12,15 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        currentLevelTimer = levelTimer;
+        currentLevelTimer = 0;
         levelTimerText = GameObject.Find("Text").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        currentLevelTimer -= Time.deltaTime;
+        currentLevelTimer += Time.deltaTime;
         //print(currentLevelTimer);
-        if(currentLevelTimer<0)
-        {
-            // game over? / lose a life
-            
-            SceneManager.LoadScene(3);
-        }
-        levelTimerText.text = (System.Math.Ceiling(currentLevelTimer)).ToString();
+        levelTimerText.text = (currentLevelTimer).ToString("00.00");
 	}
 }
