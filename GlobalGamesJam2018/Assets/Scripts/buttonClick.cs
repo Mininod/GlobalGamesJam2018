@@ -19,4 +19,9 @@ public class buttonClick : MonoBehaviour {
     {
         SceneManager.LoadScene(1);
     }
+
+    public void loadMain()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
