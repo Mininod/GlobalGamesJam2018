@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class Sign : MonoBehaviour {
 
     public string textForSign;
-    private bool lookingAtSign;
+
     public GameObject sign;
     public Text UIText;
     private bool playerInsideBox;
 	// Use this for initialization
 	void Start () {
-        lookingAtSign = false;
+
      
 	}
 	
