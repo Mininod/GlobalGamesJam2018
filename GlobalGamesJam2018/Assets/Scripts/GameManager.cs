@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public float levelTimer;
@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour {
         if(currentLevelTimer<0)
         {
             // game over? / lose a life
-            print("we timed out");
+            
+            SceneManager.LoadScene(3);
         }
         levelTimerText.text = (System.Math.Ceiling(currentLevelTimer)).ToString();
 	}

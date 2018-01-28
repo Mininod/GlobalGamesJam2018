@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
             {
                 soulTimerActive = false;
                 print("playerTimed out");
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(3);
             }
 
             if (attackOnCD == true)
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             }
             if(hp<0)
             {
-                //SceneManager.LoadScene(0);
+                SceneManager.LoadScene(3);
             }
 
             //UI update 

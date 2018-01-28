@@ -24,7 +24,7 @@ public class winLevel : MonoBehaviour {
             {
                 print("win");
                 
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(2);
 
             }
         }
