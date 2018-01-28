@@ -5,6 +5,7 @@ using UnityEngine;
 public class lastHitIndicator : MonoBehaviour {
 
     public GameObject lastHit;
+    public Vector2 adjustment;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,7 @@ public class lastHitIndicator : MonoBehaviour {
 	void Update () {
         if (lastHit != null)
         {
-            transform.position = new Vector2(lastHit.transform.position.x -0.5f, lastHit.transform.position.y +1.5f);
+            transform.position = new Vector2(lastHit.transform.position.x + adjustment.x, lastHit.transform.position.y + adjustment.y);
         }
 	}
 }
