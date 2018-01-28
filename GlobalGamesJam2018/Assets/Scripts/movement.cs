@@ -47,14 +47,25 @@ public class movement : MonoBehaviour {
 
     internal void Jump()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, (GetComponent<SpriteRenderer>().bounds.size.y / 2)+0.1f); //Change "10" to change range;
-        Debug.DrawRay(transform.position, -transform.up, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x / 2), transform.position.y), -transform.up, (GetComponent<SpriteRenderer>().bounds.size.y / 2)+0.1f); //Change "10" to change range;
 
         if (hit.collider != null && hit.collider.GetComponent<MyType>())
         {
             if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Floor)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            }
+        }
+        else
+        {
+            hit = Physics2D.Raycast(new Vector2(transform.position.x -(GetComponent<SpriteRenderer>().bounds.size.x / 2), transform.position.y) , -transform.up, (GetComponent<SpriteRenderer>().bounds.size.y / 2) + 0.1f);
+
+            if (hit.collider != null && hit.collider.GetComponent<MyType>())
+            {
+                if (hit.collider.GetComponent<MyType>().mytype == MyType.objectTag.Floor)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+                }
             }
         }
        
