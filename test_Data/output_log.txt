@@ -1,0 +1,33 @@
+Initialize engine version: 2017.1.0p4 (892c0f8d8f8a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) HD Graphics 630 (ID=0x5912)
+    Vendor:   Intel
+    VRAM:     4194 MB
+    Driver:   21.20.16.4627
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Git\GlobalGamesJam2018\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Git\GlobalGamesJam2018\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.Timeline.dll (this message is harmless)
+Loading D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
+Platform assembly: D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\Git\GlobalGamesJam2018\test_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: D:\Git\GlobalGamesJam2018\test_Data\Managed\System.dll (this message is harmless)
+Platform assembly: D:\Git\GlobalGamesJam2018\test_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.507 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.504996 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 9764 -> priority: 1 
+  Thread -> id: 9768 -> priority: 1 
+  Thread -> id: 976c -> priority: 1 
+  Thread -> id: 9770 -> priority: 1 
