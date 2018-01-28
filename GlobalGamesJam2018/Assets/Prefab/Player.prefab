@@ -193,7 +193,8 @@ MonoBehaviour:
   hp: 50
   soulTimer: 5
   soulTransmitDistance: 50
-  hitIndicator: {fileID: 0}
+  hitIndicator: {fileID: 1802980964525544, guid: 4c249c95b3a96d8459950cd2d3df8a29,
+    type: 2}
 --- !u!114 &114433789994140760
 MonoBehaviour:
   m_ObjectHideFlags: 1

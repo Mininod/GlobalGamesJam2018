@@ -49,6 +49,7 @@ public class Attack : MonoBehaviour {
                 Debug.Log("Fireball is go");
                 //Instantiate(fireBall);
                 GameObject foo = Instantiate(fireBall,new Vector2(gameObject.transform.position.x,gameObject.transform.position.y), Quaternion.identity);
+                foo.GetComponent<Transform>().localScale = new Vector3(rightamount, transform.localScale.y, transform.localScale.z);
                 foo.GetComponent<Rigidbody2D>().velocity = transform.right * rightamount * 10;
                 foo.GetComponent<FireBall>().setSource(transform.parent.gameObject);
             }
