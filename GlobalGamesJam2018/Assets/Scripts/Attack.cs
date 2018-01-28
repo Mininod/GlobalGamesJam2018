@@ -51,7 +51,6 @@ public class Attack : MonoBehaviour {
                 GameObject foo = Instantiate(fireBall,new Vector2(gameObject.transform.position.x,gameObject.transform.position.y), Quaternion.identity);
                 foo.GetComponent<Rigidbody2D>().velocity = transform.right * rightamount * 10;
                 foo.GetComponent<FireBall>().setSource(transform.parent.gameObject);
-
             }
         }
     }

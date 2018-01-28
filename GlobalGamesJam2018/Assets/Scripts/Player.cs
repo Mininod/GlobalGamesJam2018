@@ -83,6 +83,12 @@ public class Player : MonoBehaviour
                     case MyType.objectTag.Archer:
                         break;
                     case MyType.objectTag.Wizard:
+                        int foo = 1;
+                        if (!facingDirection)
+                        {
+                            foo = -1;
+                        }
+                        GetComponentInChildren<Attack>().StaffAttack(foo);
                         break;
 
                     default:

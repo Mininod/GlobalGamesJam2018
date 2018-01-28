@@ -9,7 +9,7 @@ public class AI : MonoBehaviour {
     private bool canJump;
     public bool chase;
     private float soulTimer;
-    private float hp;
+    public float hp;
     private int facingMultiplier;
     private GameObject player;
 
