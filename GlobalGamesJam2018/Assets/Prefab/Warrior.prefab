@@ -278,8 +278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMovement: 5
   chase: 0
-  soulTimer: 0
-  hp: 0
+  soulTimer: 20
+  hp: 100
   curCoolDown: 0
 --- !u!114 &114567105317207146
 MonoBehaviour:

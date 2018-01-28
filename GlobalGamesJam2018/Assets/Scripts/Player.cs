@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     private GameObject thiscamera;
     public float attackCD;
     private float curAttackCD;
-    private bool canAttack;
     private bool attackOnCD;
 
     //UI
@@ -62,7 +61,6 @@ public class Player : MonoBehaviour
                 if (curAttackCD > attackCD)
                 {
                     print("weCool");
-                    canAttack = true;
                     curAttackCD = 0;
                     attackOnCD = false;
                 }

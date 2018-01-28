@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 50
-  soulTimer: 50
+  soulTimer: 15
   soulTransmitDistance: 50
   hitIndicator: {fileID: 1802980964525544, guid: 4c249c95b3a96d8459950cd2d3df8a29,
     type: 2}

@@ -27,8 +27,6 @@ public class AI : MonoBehaviour {
 
         maxCoolDown = 2;
         curCoolDown = 0;
-        soulTimer = 1000; 
-        hp = 100;
         healthbar = transform.GetChild(1).gameObject;
         Debug.Log("SOUL TIME AND HP SET TO 10 IN START FOR DEBUGGING");
         moveRight = true;
