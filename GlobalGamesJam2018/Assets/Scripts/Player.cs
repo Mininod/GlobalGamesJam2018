@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     private bool facingDirection;
     private GameObject enemyLastHit;
     private GameObject thiscamera;
+    public float attackCD;
+    private float curAttackCD;
+    private bool canAttack;
+    private bool attackOnCD;
 
     //UI
     private Slider SoulTimerUI;
@@ -29,6 +33,7 @@ public class Player : MonoBehaviour
         GetComponent<AI>().enabled = false;
         GetComponent<IsActivePlayer>().setActivePlayer();
         facingDirection = true;
+        attackOnCD = false;
         if (soulTimer > 0)
         {
             soulTimerActive = true; //DELETE ME ONCE YOU NO LONGER NEED ME :,(
@@ -49,9 +54,22 @@ public class Player : MonoBehaviour
                 print("playerTimed out");
                 SceneManager.LoadScene(0);
             }
+
+            if (attackOnCD == true)
+            {
+                
+                curAttackCD += Time.deltaTime;
+                if (curAttackCD > attackCD)
+                {
+                    print("weCool");
+                    canAttack = true;
+                    curAttackCD = 0;
+                    attackOnCD = false;
+                }
+            }
             if(hp<0)
             {
-                SceneManager.LoadScene(0);
+                //SceneManager.LoadScene(0);
             }
 
             //UI update 
@@ -81,25 +99,30 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("CLICK");
-                switch (gameObject.GetComponent<MyType>().mytype)
+                if (attackOnCD != true)
                 {
-                    case MyType.objectTag.Warrior:
-                        Debug.Log("PLAYER SWORD ATTACK");
-                        GetComponentInChildren<Attack>().SwordAttack();
-                        break;
-                    case MyType.objectTag.Archer:
-                        break;
-                    case MyType.objectTag.Wizard:
-                        int foo = 1;
-                        if (!facingDirection)
-                        {
-                            foo = -1;
-                        }
-                        GetComponentInChildren<Attack>().StaffAttack(foo);
-                        break;
+                    print("we actually attack");
+                    attackOnCD = true;
+                    switch (gameObject.GetComponent<MyType>().mytype)
+                    {
+                        case MyType.objectTag.Warrior:
+                            Debug.Log("PLAYER SWORD ATTACK");
+                            GetComponentInChildren<Attack>().SwordAttack();
+                            break;
+                        case MyType.objectTag.Archer:
+                            break;
+                        case MyType.objectTag.Wizard:
+                            int foo = 1;
+                            if (!facingDirection)
+                            {
+                                foo = -1;
+                            }
+                            GetComponentInChildren<Attack>().StaffAttack(foo);
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
                 }
             }
 

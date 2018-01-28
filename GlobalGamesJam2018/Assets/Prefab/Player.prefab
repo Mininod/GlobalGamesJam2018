@@ -177,8 +177,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMovement: 5
   chase: 0
+  soulTimer: 0
   hp: 0
   curCoolDown: 0
+  healthbar: {fileID: 0}
 --- !u!114 &114353166080571638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,6 +197,7 @@ MonoBehaviour:
   soulTransmitDistance: 50
   hitIndicator: {fileID: 1802980964525544, guid: 4c249c95b3a96d8459950cd2d3df8a29,
     type: 2}
+  attackCD: 2
 --- !u!114 &114433789994140760
 MonoBehaviour:
   m_ObjectHideFlags: 1
