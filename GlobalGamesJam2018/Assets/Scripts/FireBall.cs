@@ -5,7 +5,8 @@ using UnityEngine;
 public class FireBall : MonoBehaviour {
 
 
-    internal Collider2D Source;
+    //internal Collider2D Source;
+    private GameObject Source;
     private int damage;
     // Use this for initialization
     void Start ()
@@ -21,7 +22,7 @@ public class FireBall : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other != Source) // source is past in when cannonball is created so it can't hit itself
+        if (other.gameObject != Source) // source is past in when cannonball is created so it can't hit itself
         {
             if (other.GetType() == typeof(BoxCollider2D))
             {
@@ -55,7 +56,11 @@ public class FireBall : MonoBehaviour {
         return damage;
     }
 
-    public void setSource(Collider2D other)
+    //public void setSource(Collider2D other)
+    //{
+    //    Source = other;
+    //}
+    public void setSource(GameObject other)
     {
         Source = other;
     }
