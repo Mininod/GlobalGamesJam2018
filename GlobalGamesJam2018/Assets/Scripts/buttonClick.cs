@@ -25,6 +25,7 @@ public class buttonClick : MonoBehaviour {
 
     public void loadMain()
     {
+        Debug.Log("yo");
         audioThing.GetComponent<AudioControllerScript>().PlayAudioClip(3);
         SceneManager.LoadScene(0);
     }
