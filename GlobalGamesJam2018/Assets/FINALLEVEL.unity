@@ -2512,7 +2512,7 @@ Prefab:
     - target: {fileID: 114963964301836020, guid: a1b74141daeb73441ba98306aa23e26f,
         type: 2}
       propertyPath: levelTimer
-      value: 1000
+      value: 100000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1b74141daeb73441ba98306aa23e26f, type: 2}
@@ -4349,6 +4349,21 @@ Prefab:
         type: 2}
       propertyPath: soulTimer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114353166080571638, guid: fc17f9915b83eec48bdc65ebb515788a,
+        type: 2}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114351307222907894, guid: fc17f9915b83eec48bdc65ebb515788a,
+        type: 2}
+      propertyPath: soulTimer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114351307222907894, guid: fc17f9915b83eec48bdc65ebb515788a,
+        type: 2}
+      propertyPath: hp
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc17f9915b83eec48bdc65ebb515788a, type: 2}

@@ -20,12 +20,13 @@ public class Player : MonoBehaviour
     public float attackCD;
     private float curAttackCD;
     private bool attackOnCD;
-
+    private GameObject healthbar;
     //UI
     private Slider SoulTimerUI;
     // Use this for initialization
     void Start()
     {
+        healthbar = transform.GetChild(1).gameObject;
         GetComponent<SpriteRenderer>().color = new Color32(216, 144, 144, 255);
         thiscamera = Camera.main.gameObject;
         thiscamera.GetComponent<FollowPlayer>().setNewPlayer(gameObject);
@@ -44,6 +45,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float vectorhpshit = hp / 100;
+        Debug.Log(vectorhpshit);
+        healthbar.transform.localScale = new Vector2(vectorhpshit, healthbar.transform.localScale.y);
+        healthbar.transform.localPosition = new Vector2(-.62f - vectorhpshit, healthbar.transform.localPosition.y);
+
         if (soulTimerActive == true)
         {
             soulTimer -= Time.deltaTime;
