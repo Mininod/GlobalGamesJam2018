@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4017542911214958}
   - component: {fileID: 212731047975278520}
+  - component: {fileID: 114033056637776114}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -120,6 +121,17 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114033056637776114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081296559866992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24cf039429223a42b759f9d89cac46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212731047975278520
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -133,7 +145,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a6d9eb91abf70494fa3fe0e62fae3ae4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,7 +165,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -8
   m_Sprite: {fileID: 21300004, guid: a61134029ff96034897521c7439c1efc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5441177, g: 0.5001082, b: 0.5001082, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
