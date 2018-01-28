@@ -134,6 +134,11 @@ public class AI : MonoBehaviour {
         }
         GetComponent<Transform>().localScale = new Vector3(facingMultiplier, transform.localScale.y, transform.localScale.z);
 
+        if(hp <= 0)
+        {
+            player.GetComponent<Player>().hitIndicator.SetActive(false);
+            Destroy(gameObject);
+        }
 
     }
 

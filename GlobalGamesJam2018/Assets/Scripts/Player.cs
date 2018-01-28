@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        GetComponent<SpriteRenderer>().color = new Color32(109, 0, 0, 255);
         thiscamera = Camera.main.gameObject;
         thiscamera.GetComponent<FollowPlayer>().setNewPlayer(gameObject);
         GetComponent<AI>().enabled = false;
@@ -120,6 +121,7 @@ public class Player : MonoBehaviour
                         enemyLastHit.AddComponent<Player>();
                         enemyLastHit.GetComponent<Player>().hp = enemyLastHit.GetComponent<AI>().GetHp();
                         enemyLastHit.GetComponent<Player>().hitIndicator = hitIndicator;
+                        GetComponent<SpriteRenderer>().color = new Color32(255,255, 255, 255);
                         hitIndicator.SetActive(false);
                         GetComponent<AI>().enabled = true; //Sets This Gameobject to have AI
                         GetComponent<AI>().SetSoulTimer(soulTimer);
