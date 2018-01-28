@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Loss.unity
     guid: 1dfecf8313845d848aff0a20ce0b6dec
+  - enabled: 1
+    path: Assets/Credits.unity
+    guid: e7e7fbddea35c0746a05c10362fa78a2
