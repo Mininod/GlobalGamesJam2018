@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour {
     //private GameObject trigger;
     private BoxCollider2D trigger;
     public GameObject fireBall;
+    private int damage = 20;
 	// Use this for initialization
 	void Start () {
 		if(GetComponent<BoxCollider2D>())
@@ -68,7 +69,7 @@ public class Attack : MonoBehaviour {
                     {
                         if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
                         {
-                            other.GetComponent<Player>().takeDamage(20); //magic number scrub //
+                            other.GetComponent<Player>().takeDamage(damage); //magic number scrub //
                             Debug.Log("Hit");
                         }
                     }
@@ -86,7 +87,7 @@ public class Attack : MonoBehaviour {
                         if (other.GetComponent<AI>())
                         {
                             Debug.Log("GET");
-                            other.GetComponent<AI>().takeDamage(5); // maggic ass damage
+                            other.GetComponent<AI>().takeDamage(damage); // maggic ass damage
                             GetComponentInParent<Player>().SetEnemyLastHit(other.gameObject);
                             GetComponentInParent<Player>().hitIndicator.SetActive(true);
                             GetComponentInParent<Player>().hitIndicator.GetComponent<lastHitIndicator>().lastHit = other.gameObject;
