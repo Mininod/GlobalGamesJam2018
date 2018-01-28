@@ -693,8 +693,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -9}
-  m_SizeDelta: {x: 549.3, y: 139.4}
+  m_AnchoredPosition: {x: 0, y: 6}
+  m_SizeDelta: {x: 549.3, y: 300.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809478979
 MonoBehaviour:
@@ -729,7 +729,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Olly Mills - Programing + Project Leader \nAaron Brown - All art + Programing\nAbel
-    Little - Programing + Level Design"
+    Little - Programing + Level Design\n\nAdditional help from:\r\nGeorge Dean - Sound
+    effects\r\n\r\n"
 --- !u!222 &1809478980
 CanvasRenderer:
   m_ObjectHideFlags: 0
