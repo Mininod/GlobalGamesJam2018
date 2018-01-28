@@ -13,7 +13,7 @@ public class Sign : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         lookingAtSign = false;
-        sign.GetComponentInChildren<Text>().text = textForSign;
+     
 	}
 	
 	// Update is called once per frame
@@ -21,8 +21,9 @@ public class Sign : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.E) && playerInsideBox)
         {
+            sign.GetComponentInChildren<Text>().text = textForSign;
             Debug.Log(textForSign);
-            
+            UIText.gameObject.SetActive(false);
             LookAtSign();
 
         }
