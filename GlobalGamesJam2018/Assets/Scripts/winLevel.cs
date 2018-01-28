@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class winLevel : MonoBehaviour {
 
 	// Use this for initialization
@@ -23,6 +23,8 @@ public class winLevel : MonoBehaviour {
             if (!other.isTrigger && other.GetComponent<IsActivePlayer>().getIsActivePlayer() == true)
             {
                 print("win");
+                
+                SceneManager.LoadScene(0);
 
             }
         }
