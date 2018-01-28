@@ -26,6 +26,13 @@ public class FireBall : MonoBehaviour {
         {
             if (other.GetType() == typeof(BoxCollider2D))
             {
+                if(other.GetComponent<MyType>())
+                {
+                    if(other.GetComponent<MyType>().mytype==MyType.objectTag.Floor)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
 
                 if (other.GetComponent<IsActivePlayer>() == true)
                 {
