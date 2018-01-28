@@ -50,7 +50,7 @@ public class AI : MonoBehaviour {
         float vectorhpshit = hp / 100;
         Debug.Log(vectorhpshit);
         healthbar.transform.localScale=  new Vector2(vectorhpshit, healthbar.transform.localScale.y);
-        healthbar.transform.localPosition = new Vector2(-.5f - vectorhpshit, healthbar.transform.localPosition.y);
+        healthbar.transform.localPosition = new Vector2(-.62f - vectorhpshit, healthbar.transform.localPosition.y);
         if (player != null)
         {
             if (player.GetComponent<IsActivePlayer>().getIsActivePlayer() == true && chase == true)
