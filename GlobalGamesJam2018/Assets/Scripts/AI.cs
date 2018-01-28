@@ -145,8 +145,11 @@ public class AI : MonoBehaviour {
 
         if(hp <= 0)
         {
-            player.GetComponent<Player>().hitIndicator.SetActive(false);
-            Destroy(gameObject);
+            if(player != null)
+            {
+                player.GetComponent<Player>().hitIndicator.SetActive(false);
+            }
+            gameObject.SetActive(false);
         }
 
     }
