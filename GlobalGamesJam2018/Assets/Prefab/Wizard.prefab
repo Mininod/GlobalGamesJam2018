@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5482f70f601cd874e8427563f249ad6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mytype: 1
+  mytype: 3
 --- !u!114 &114230498403374210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2143f83f34d69a408764841c56ee3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBall: {fileID: 0}
+  fireBall: {fileID: 1212142444571756, guid: 67f8c9ca80ccbb841948187f1ed7d5db, type: 2}
 --- !u!114 &114693452774305466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMovement: 5
   chase: 0
-  inAttackRange: 0
+  hp: 0
   curCoolDown: 0
 --- !u!212 &212220342713996514
 SpriteRenderer:

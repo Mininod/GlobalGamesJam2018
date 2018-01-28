@@ -41,6 +41,9 @@ public class FireBall : MonoBehaviour {
 
                     if (other.GetComponent<IsActivePlayer>().getIsActivePlayer() != true)
                     {
+                        Source.GetComponent<Player>().SetEnemyLastHit(other.gameObject);
+                        Source.GetComponent<Player>().hitIndicator.SetActive(true);
+                        Source.GetComponent<Player>().hitIndicator.GetComponent<lastHitIndicator>().lastHit = other.gameObject;
                         other.GetComponent<AI>().takeDamage(DealDamage());
                     }
                 }
