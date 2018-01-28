@@ -8,16 +8,22 @@ public class FireBall : MonoBehaviour {
     //internal Collider2D Source;
     private GameObject Source;
     private int damage;
+    private float life;
     // Use this for initialization
     void Start ()
     {
         damage = 20;
+        life = 5;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		
+        life -= Time.deltaTime;
+        if(life < 0)
+        {
+            Destroy(gameObject);
+        }
 	}
 
     private void OnTriggerEnter2D(Collider2D other)
