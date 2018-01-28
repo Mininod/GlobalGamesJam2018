@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public float attackCD;
     private float curAttackCD;
     private bool attackOnCD;
+    private bool pauseSoulTimer;
     private GameObject healthbar;
     //UI
     private Slider SoulTimerUI;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
         GetComponent<IsActivePlayer>().setActivePlayer();
         facingDirection = true;
         attackOnCD = false;
+        pauseSoulTimer = false;
         if (soulTimer > 0)
         {
             soulTimerActive = true; //DELETE ME ONCE YOU NO LONGER NEED ME :,(
@@ -52,7 +54,10 @@ public class Player : MonoBehaviour
 
         if (soulTimerActive == true)
         {
-            soulTimer -= Time.deltaTime;
+            if (pauseSoulTimer == false)
+            {
+                soulTimer -= Time.deltaTime;
+            }
             if (soulTimer < 0)
             {
                 soulTimerActive = false;
@@ -183,6 +188,11 @@ public class Player : MonoBehaviour
     public void SetEnemyLastHit(GameObject input)
     {
         enemyLastHit = input;
+    }
+
+    public void SetTimePause(bool input)
+    {
+        pauseSoulTimer = input;
     }
 
 }

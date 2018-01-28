@@ -38,6 +38,7 @@ public class Sign : MonoBehaviour {
                 if (other.GetComponentInParent<IsActivePlayer>().getIsActivePlayer() == true)
                 {
                     playerInsideBox = true;
+                    other.GetComponent<Player>().SetTimePause(true);
                 }
             }
         }
@@ -54,6 +55,7 @@ public class Sign : MonoBehaviour {
                     Debug.Log("SHIT");
                     playerInsideBox = false;
                     sign.SetActive(false);
+                    other.GetComponent<Player>().SetTimePause(false);
                 }
             }
         }
